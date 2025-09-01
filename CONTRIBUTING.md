@@ -5,7 +5,20 @@
 ^ Team Canvas van sprint 13
 
 ## Werkwijze
-- Je houdt 
+
+### PR Template
+### Wat is er veranderd? 
+- Link naar issues (gebruik een `#`)
+- Uitleg wat je gedaan hebt 
+- Hoe heb je rekening gehouden met een RAPPE website? 
+  - Responsive
+  - Accessible 
+  - Performance
+  - Progressively enhanced
+- Waar wil je feedback op
+
+### Visuals 
+- Afbeeldingen/schermopname 
 
 # Code conventies
 ### HTML / Liquid
