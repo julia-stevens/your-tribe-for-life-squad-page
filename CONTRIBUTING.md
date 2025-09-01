@@ -1,20 +1,26 @@
 # Afspraken over samenwerking
+- Elke lesdag houden we een stand-up (ma, woe, vrij)
+- Communiceren via Teams
+- Voortgang bijhouden in projectbord
+- Houd je aan de afgesproken werkwijze
+- Laat weten als je afwezig bent
+- Laat weten als je ergens tegenaan loopt
 
 ## Teamcanvas
 <img width="600" alt="Screenshot 2025-09-01 151242" src="https://github.com/user-attachments/assets/bf4f5541-dc9c-40aa-bdf0-d32b08a24258" />
-^ Team Canvas van sprint 13
 
 ## Werkwijze
+- Je werkt aan de hand van de issues in feature branches
+- Merge eerst main naar jouw werk, voordat je commit
+- Maak een PR voor je werk
+  - Assign alle teamleden
+  - Verwerk feedback én tag teamlid
+  - Als minimaal 1 teamlid goedkeuring heeft gegeven dan kan je werk naar de `main` gemerged worden (zorg dat je de meest recente versie van de `main` op jouw branch hebt staan)
 
 ### PR Template
 ### Wat is er veranderd? 
 - Link naar issues (gebruik een `#`)
 - Uitleg wat je gedaan hebt 
-- Hoe heb je rekening gehouden met een RAPPE website? 
-  - Responsive
-  - Accessible 
-  - Performance
-  - Progressively enhanced
 - Waar wil je feedback op
 
 ### Visuals 
