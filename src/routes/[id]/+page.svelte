@@ -6,3 +6,4 @@
 
 <a href="/">Terug naar home</a>
 <h1>Detailpagina van {member.name}</h1>
+<p>test</p>
