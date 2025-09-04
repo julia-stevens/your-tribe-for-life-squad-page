@@ -164,5 +164,33 @@
             gap: 0 !important;
         }
     }
+
+    .filters a {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .filters a:hover {
+        border: 1px solid var(--primary-text);
+        border-radius: var(--b-radius-small);
+        box-shadow: 
+            /* box shadow color */
+            -5px 5px 1px var(--secondary-background),
+            /* box shadow border */
+            -5px 5px 0 1px var(--primary-text)
+        ;        
+    }
+
+    .active-link {
+        border: 1px solid var(--primary-text);
+        border-radius: var(--b-radius-small);
+        box-shadow: 
+            /* box shadow color */
+            -5px 5px 1px var(--primary-highlight),
+            /* box shadow border */
+            -5px 5px 0 1px var(--primary-text)
+        ;
+        background-color: var(--primary-highlight);
+    }
     }
 </style>
