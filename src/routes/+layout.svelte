@@ -14,7 +14,8 @@
 <main>
 	<header> 
 	<img class="header-logo" src="../assets/hva-blank.svg" alt="naar de homepagina">
-	<Title title="FDND" />
+	<img class="header-logo" src="../assets/fdnd.png" alt="FDND">
+	<a href="/" class="home">Bekijk het programma</a>
     </header>
 
 <h1> Squadpage FDND</h1>

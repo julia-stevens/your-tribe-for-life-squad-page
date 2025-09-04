@@ -46,9 +46,45 @@ header {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    flex-direction: column;
 }
 
     .header-logo {
         width: 30%;
+    }
+
+     .home {
+        text-decoration: none;
+        background-color: var(--primary-text);
+        color: var(--secondary-color);
+        padding: .4em .8em;
+        border: 1px solid var(--primary-text);
+        border-radius: .5em;
+        font-weight: 600;
+        transition: .2s ease-in-out;
+        margin: 0 0 1em 0;
+
+        box-shadow:
+            -5px 5px 1px var(--primary-highlight),
+            -5px 5px 0 1px var(--primary-text)
+        ;
+
+        &:hover {
+            background-color: var(--primary-highlight);
+            border: 1px solid var(--primary-text);
+            box-shadow: -5px 5px 1px var(--primary-text) ;
+            color: var(--primary-text);
+            transition: .3s ease-in-out;
+        }
+
+        &:focus {
+            border: 1px solid var(--primary-text);
+        }
+    }
+
+    footer {
+         display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
     }
