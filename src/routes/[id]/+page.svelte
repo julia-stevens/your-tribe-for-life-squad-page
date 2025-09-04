@@ -36,6 +36,11 @@
         font-family: "Open Sans", serif;
         font-size: 16px;
         color: var(--primary-text);
+
+        &:focus {
+            outline: 3px dashed var(--primary-color);
+            outline-offset: 4px;
+        }
     }
 
     main {
