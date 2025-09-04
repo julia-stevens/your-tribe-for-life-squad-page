@@ -28,6 +28,14 @@
         </div>
         <div class="filters">
             <p>Hier komen de filters</p>
+            <div class="class">
+                <p>
+                    Kies je klas: 
+                    <a href="/">2E</a>
+                    of
+                    <a href="/" class="active-link">2F</a>
+                </p>
+            </div>
         </div>
         <div class="list-students">
             <ul>
