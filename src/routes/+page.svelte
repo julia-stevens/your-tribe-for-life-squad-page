@@ -27,7 +27,6 @@
             <h2>Overzicht studenten</h2>
         </div>
         <div class="filters">
-            <p>Hier komen de filters</p>
             <div class="class">
                 <p>
                     Kies je klas: 
@@ -192,5 +191,83 @@
         ;
         background-color: var(--primary-highlight);
     }
+
+    .overview {
+        gap: 2rem;
     }
+
+    ul, li {
+        width: fit-content;
+    }
+
+    ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+        gap: 2rem;
+    }
+
+    article {
+        border: 1px solid var(--primary-text);
+        border-radius: var(--b-radius-small);
+        box-shadow: 
+            /* box shadow color */
+            -5px 5px 1px var(--primary-highlight),
+            /* box shadow border */
+            -5px 5px 0 1px var(--primary-text)
+        ;
+        padding: 1rem 2rem;
+        max-width: 255px;
+    }
+
+    article .name {
+        order: 1;
+        justify-content: space-between;
+    }
+
+    article .avatar {
+        width: fit-content;
+        max-width: 189px;
+        height: fit-content;
+        max-height: 189px;
+        overflow: hidden;
+    }
+
+    article .avatar img {
+        width: 100%; 
+        height: 100%;
+        border-radius: var(--b-radius-small);
+    }
+
+    @media (min-width: 280px) {
+        article .name {
+            flex-direction: row;
+        }
+    }
+
+    /* Animations */
+    li:hover {
+        cursor: pointer;
+
+        .link-icon {
+            animation: shake .2s ease-in 2;
+        }
+    }
+
+    @keyframes shake {
+    0%, 100% {
+        rotate: 0deg;
+        scale: 1;
+    }    
+    25% {
+        rotate: 10deg;
+        scale: 1.15;
+    }
+    50% {
+        rotate: 0deg;
+    }
+    75% {
+        rotate: -10deg;
+    }
+}
 </style>
