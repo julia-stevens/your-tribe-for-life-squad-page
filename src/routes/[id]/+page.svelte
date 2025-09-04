@@ -4,9 +4,18 @@
     const member = data.member; 
 </script>
 
-<a href="/">Terug naar home</a>
-<h1>Detailpagina van {member.name}</h1>
-<p>FDND jaar 2025/2026</p>
-<p>{member.squads[1].squad_id.name}</p>
-<p>{member.bio}</p>
-<img src="https://fdnd.directus.app/assets/{member.mugshot}" alt="Mugshot van {member.name}" style="width:200px; height:200px; object-fit: cover;">
+
+<main>
+    <section>
+        <a href="/">Terug naar de squad</a>
+        <h1>{member.name}</h1>
+        <p class="year">FDND jaar 2025/2026</p>
+        <p>Squad: {member.squads[1].squad_id.name}</p>
+        <p>{member.bio}</p>
+    </section>
+
+    <figure>
+        <img src="https://fdnd.directus.app/assets/{member.mugshot}" alt="Mugshot van {member.name}" height="100" width="100">
+        <figcaption>{member.name}</figcaption>
+    </figure>
+</main>
