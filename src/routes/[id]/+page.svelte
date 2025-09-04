@@ -47,6 +47,14 @@
         padding: 2em 1em;
         background-color: var(--secondary-color);
         position: relative;
+
+        @media screen and (min-width: 800px) {
+            flex-direction: row;
+            padding: 2em 9em;
+            justify-content: center;
+             gap: 10em;
+              align-items: center;
+        }
     }
 
     section {
@@ -56,6 +64,11 @@
         position: relative;
         z-index: 1;
         align-items: flex-start;
+
+        @media screen and (min-width: 800px) {
+            width: 50%;
+            gap: 1.8em;
+        }
     }
 
     a {
@@ -91,6 +104,10 @@
 
     h1 {
         font-size: 35px;
+
+         @media screen and (min-width: 800px) {
+             font-size: 45px;
+        }
     }
 
     figure {
@@ -102,6 +119,11 @@
         border-radius: .7em;
         position: relative;
         z-index: 1;
+
+        @media screen and (min-width: 800px) {
+            width: 25em;
+            min-width: 22em;
+        }
 
         &::after {
             content: "";
@@ -128,5 +150,11 @@
         height: 15em;
         object-fit: cover;
         border-radius: 0.4em;
+
+        @media screen and (min-width: 800px) {
+            height: 18.5em;
+            width: 100%;
+        }
     }
+
 </style>
