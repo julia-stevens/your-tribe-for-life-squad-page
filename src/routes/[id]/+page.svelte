@@ -15,7 +15,7 @@
     </section>
 
     <figure>
-        <img src="https://fdnd.directus.app/assets/{member.mugshot}" alt="Mugshot van {member.name}" height="100" width="100">
+        <img  src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
         <figcaption>{member.name}</figcaption>
     </figure>
 </main>
@@ -47,6 +47,7 @@
         padding: 2em 1em;
         background-color: var(--secondary-color);
         position: relative;
+        border-radius: 1em;
 
         @media screen and (min-width: 800px) {
             flex-direction: row;
