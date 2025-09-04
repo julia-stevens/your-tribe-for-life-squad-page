@@ -8,9 +8,12 @@
 
 <!-- HTML -->
 <main>
+<main class="vertical-layout">
     <!-- Introductie -->
     <section class="info">
         <div class="title">
+    <section class="info vertical-layout">
+        <div class="title vertical-layout">
             <h1>Squadpage FDND</h1>
             <p>Tweedejaars studenten 2025/2026</p>
         </div>
@@ -23,6 +26,7 @@
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview">
+    <section class="overview vertical-layout">
         <div class="title">
             <h2>Overzicht studenten</h2>
         </div>
@@ -57,5 +61,21 @@
 <style>
     a {
         display: block; 
+    /* Styling */
+    .introduction p {
+        max-width: 420px;
+    }
+
+    @media (min-width: 940px) {
+        .info {
+            flex-direction: row; 
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            gap: 0 !important;
+        }
+    }
     }
 </style>
