@@ -164,6 +164,7 @@
     .filters a {
         margin: 1rem;
         padding: 1rem;
+        border: 1px solid transparent;
         border-radius: var(--b-radius-small);
         box-shadow: 
             /* box shadow color */
@@ -185,13 +186,13 @@
     }
 
     .active-link {
-        border: 1px solid var(--primary-text);
+        border: 1px solid var(--primary-text) !important;
         border-radius: var(--b-radius-small);
         box-shadow: 
             /* box shadow color */
             -5px 5px 1px var(--primary-highlight),
             /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
+            -5px 5px 0 1px var(--primary-text) !important
         ;
         background-color: var(--primary-highlight);
     }
