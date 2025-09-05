@@ -121,27 +121,20 @@
         max-width: 20em;
         padding: 3em 2.5em 1.5em;
         border: 1px solid #050542;
-        background-color: var(--primary-highlight);
+        background-color: #D9D9D9;
         border-radius: .7em;
         position: relative;
         z-index: 1;
+        box-shadow:  
+             /* box shadow color */ 
+             -5px 5px 1px var(--primary-highlight), 
+             /* box shadow border */ 
+             -5px 5px 0 1px var(--primary-text) 
+         ; 
 
         @media screen and (min-width: 800px) {
             width: 25em;
             min-width: 22em;
-        }
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: -.4em;     
-            left: .3em;    
-            width: 100%;
-            height: 100%;
-            border: 1px solid #050542; 
-            background-color: #D9D9D9;
-            border-radius: 0.6em;
-            z-index: -1;
         }
     }
 
