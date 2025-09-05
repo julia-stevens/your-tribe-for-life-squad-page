@@ -1,7 +1,6 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
 	import Title from '$lib/+title.svelte';
-	import '../styles/stylesheet.css'
 
 	let { children } = $props();
 </script>
