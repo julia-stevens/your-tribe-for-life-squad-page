@@ -3,7 +3,6 @@
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
-    const defaultAvatar = "default-avatar.jpg"
 </script>
 
 <!-- HTML -->
@@ -52,7 +51,7 @@
                             </div>
                             <div class="avatar">
                                 <img 
-                                    src="{member.avatar || defaultAvatar}" 
+                                    src="{member.avatar || "default-avatar.jpg"}" 
                                     alt="Avatar van {member.name}" 
                                     width="50" 
                                     height="50" 
@@ -165,6 +164,13 @@
     .filters a {
         margin: 1rem;
         padding: 1rem;
+        border-radius: var(--b-radius-small);
+        box-shadow: 
+            /* box shadow color */
+            -5px 5px 1px transparent,
+            /* box shadow border */
+            -5px 5px 0 1px transparent
+        ; 
     }
 
     .filters a:hover {
