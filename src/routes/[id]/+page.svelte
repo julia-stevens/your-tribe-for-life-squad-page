@@ -33,7 +33,7 @@
         --secondary-text: #01A581;
         --section-radius: .5rem;
         --section-padding: .5em 1em;
-        font-family: "Open Sans", serif;
+        font-family: "Open Sans", sans-serif;
         font-size: 16px;
         color: var(--primary-text);
 
