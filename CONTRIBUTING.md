@@ -26,6 +26,9 @@
 ### Visuals 
 - Afbeeldingen/schermopname 
 
+# FDND conventies
+[zie FDND website](https://docs.fdnd.nl/conventies.html)
+
 # Code conventies
 ### HTML / Liquid
 - Gebruik semantische HTML: `<section>`, `<article>`, `<main>`
