@@ -27,11 +27,15 @@
         </div>
         <div class="filters">
             <div class="class">
-                <p>
-                    Kies je klas: 
-                    <a href="/">2E</a>
-                    of
-                    <a href="/" class="active-link">2F</a>
+                <p class="vertical-layout">
+                    <span>
+                        Kies je klas: 
+                    </span>
+                    <span class="span-classes vertical-layout">
+                        <a href="/">2E</a>
+                        <!-- of -->
+                        <a href="/" class="active-link">2F</a>
+                    </span>
                 </p>
             </div>
         </div>
@@ -164,6 +168,7 @@
     .filters a {
         margin: 1rem;
         padding: 1rem;
+        width: min-content;
         border: 1px solid transparent;
         border-radius: var(--b-radius-small);
         box-shadow: 
@@ -195,6 +200,23 @@
             -5px 5px 0 1px var(--primary-text) !important
         ;
         background-color: var(--primary-highlight);
+    }
+
+    .span-classes {
+        gap: 0;
+         a {
+            margin: 0 1rem; 
+        }
+
+        @media (min-width: 310px) {
+            display: inline-block;
+        }
+    }
+
+        @media (min-width: 400px) {
+        .filters p {
+            flex-direction: row; 
+        }
     }
 
     .overview {
