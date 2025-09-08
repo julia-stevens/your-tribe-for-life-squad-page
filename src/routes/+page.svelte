@@ -223,7 +223,7 @@
         gap: 2rem;
     }
 
-    ul, li {
+    ul {
         width: fit-content;
     }
 
@@ -244,6 +244,7 @@
             -5px 5px 0 1px var(--primary-text)
         ;
         padding: 1rem 2rem;
+        width: 60vw;
         max-width: 255px;
     }
 
@@ -255,8 +256,7 @@
     article .avatar {
         width: fit-content;
         max-width: 189px;
-        height: fit-content;
-        max-height: 189px;
+        height: 189px;
         overflow: hidden;
     }
 
