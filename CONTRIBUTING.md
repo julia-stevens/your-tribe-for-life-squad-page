@@ -47,3 +47,9 @@
 - camelCase voor variabelen/functies: handleSubmit
 - Gebruik `const`/`let`
 - Voeg comments of JSDoc toe bij functies
+
+### Animaties
+- Begin alle animatie classes met 'animation'
+- Het tweede deel van de classname hoort bij hoe de animatie zichtbaar/onzichtbaar wordt, e.g fade-in
+- Het derde deel van de classname hoort bij de richting van de animatie + wordt onderscheiden door een --, e.g --up of --down
+- 
