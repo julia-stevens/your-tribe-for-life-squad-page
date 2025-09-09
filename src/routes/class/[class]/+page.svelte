@@ -3,6 +3,7 @@
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
+    const selectedClass = data.selectedClass;
 </script>
 
 <!-- HTML -->
@@ -32,9 +33,9 @@
                         Kies je klas: 
                     </span>
                     <span class="span-classes vertical-layout">
-                        <a href="/class/2E">2E</a>
+                        <a href="/class/2E" class={selectedClass === "2E" ? "active-link" : ""}>2E</a>
                         <!-- of -->
-                        <a href="/class/2F">2F</a>
+                        <a href="/class/2F" class={selectedClass === "2F" ? "active-link" : ""}>2F</a>
                     </span>
                 </p>
             </div>
@@ -48,14 +49,14 @@
                                 <h3>{member.name}</h3>
                                 <a href="/{member.id}">
                                     <img 
-                                    src="link-icon.svg" 
+                                    src="../link-icon.svg" 
                                     alt="Link icoon"
                                     class="link-icon">
                                 </a>
                             </div>
                             <div class="avatar">
                                 <img 
-                                    src="{member.avatar || "default-avatar.jpg"}" 
+                                    src="{member.avatar || "../default-avatar.jpg"}" 
                                     alt="Avatar van {member.name}" 
                                     width="50" 
                                     height="50" 
