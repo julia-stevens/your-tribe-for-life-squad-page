@@ -76,4 +76,10 @@
     font-size: clamp(1rem, 1.116rem + 1.7937vw, 1.5rem);
     margin: 0;
   }
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+  }
 </style>
