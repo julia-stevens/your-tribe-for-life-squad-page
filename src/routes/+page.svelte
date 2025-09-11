@@ -1,6 +1,8 @@
 <!-- Data inladen -->
 <script>
     import AnimationText from "$lib/components/AnimationText.svelte";
+    import AnimationSection from "$lib/components/AnimationSection.svelte";
+
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
@@ -22,18 +24,17 @@
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
         <div class="title">
-            <h2>Overzicht studenten</h2>
+            <AnimationText tag={"h2"} text="Overzicht studenten"/>
         </div>
-        <div class="filters">
-            <div class="class">
-                <p>
-                    Kies je klas: 
-                    <a href="/">2E</a>
-                    of
-                    <a href="/" class="active-link">2F</a>
-                </p>
-            </div>
-        </div>
+        <AnimationSection tag="div" className="filters">
+            <p>
+                Kies je klas: 
+                <a href="/">2E</a>
+                of
+                <a href="/" class="active-link">2F</a>
+            </p>
+        </AnimationSection>
+
         <div class="list-students">
             <ul>
                 {#each members as member}
@@ -151,7 +152,7 @@
         }
     }
 
-    .filters a {
+    :global(.filters a) {
         margin: 1rem;
         padding: 1rem;
         border: 1px solid transparent;
@@ -164,7 +165,7 @@
         ; 
     }
 
-    .filters a:hover {
+    :global(.filters a:hover) {
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
