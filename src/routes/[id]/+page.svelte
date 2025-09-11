@@ -15,7 +15,7 @@
     </section>
 
     <figure>
-        <img  src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
+        <img src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
         <figcaption>{member.name}</figcaption>
     </figure>
 </main>
