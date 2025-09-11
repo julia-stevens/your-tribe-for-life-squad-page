@@ -383,7 +383,7 @@
     100% {
       transform: translate(0%, -250%);
       opacity: 0; 
-      rotate: 20deg;
+      /* rotate: 20deg; */
     }
   }
 </style>
