@@ -12,18 +12,19 @@
 
 <main>
 	<header> 
-	<img class="header-logo" src="../hva-blank.svg" alt="naar de homepagina" width="100" height="50">
-	<img class="header-logo" src="../fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;">
+	<img class="header-logo" src="hva-blank.svg" alt="naar de homepagina" width="100" height="50">
+	<img class="header-logo" src="fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;">
 	<a href="https://programma.fdnd.nl/" class="home">Bekijk het programma</a>
     </header>
 
 {@render children?.()}
-</main>
-
 
 <footer>
+        <img class="header-logo" src="hva-blank.svg" alt="naar de homepagina" height="50">
+    <h2>Creating Tomorrow</h2>
 	<p>Amber, Stella & Julia | FDND 2025/2026</p>
 </footer>
+</main>
 
 <style>
 	* {
@@ -105,11 +106,23 @@ header {
         }
     }
 
+
+
     footer {
-         display: flex; 
+    background-color: var(--primary-color);
+    color: var(--primary-text);
+    border-radius: var(--section-radius) var(--section-radius) 0 0;
+    padding: var(--section-padding);
+    margin-left: 2%;
+    position: sticky; 
+    width: 96%;
+    top: 0;
+    z-index: 99;
+
+    /* Flex */
+    display: flex; 
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 2rem;
-    flex-direction: column;
-    }
+}
 </style>
