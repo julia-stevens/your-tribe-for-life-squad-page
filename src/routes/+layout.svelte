@@ -12,7 +12,7 @@
 
 <main>
 	<header> 
-	<img class="header-logo" src="hva-blank.svg" alt="naar de homepagina" width="100" height="50">
+	<img class="header-logo" src="hva-blank.svg" alt="naar de homepagina" height="50">
 	<img class="header-logo" src="fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;">
 	<a href="https://programma.fdnd.nl/" class="home">Bekijk het programma</a>
     </header>

@@ -3,6 +3,17 @@
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
+    const sort = data.sort; 
+
+    import { goto } from "$app/navigation";
+    import { page } from "$app/stores";
+
+    function handleChange(event) {
+        const value = event.target.value;
+        const url = new URL($page.url);
+        url.searchParams.set("sort", value);
+        goto(url.toString());
+    }
 </script>
 
 <!-- HTML -->
@@ -11,11 +22,11 @@
     <section class="info vertical-layout">
         <div class="title vertical-layout">
             <h1>Squadpage FDND</h1>
-            <p>Tweedejaars studenten 2025/2026</p>
+            <p class="sub-title">Tweedejaars studenten 2025/2026</p>
         </div>
         <div class="introduction">
             <p> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                Welkom op de homepagina van FDND Jaar 2. Hier vind je een overzicht van alle squads met hun studenten en docenten. Klik op een squad of student/docent om meer te ontdekken en leer FDND Jaar 2 kennen!
             </p>
         </div>
     </section>
@@ -23,21 +34,25 @@
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
         <div class="title">
-            <h2>Overzicht studenten</h2>
+            <h2>Overzicht tweedejaars</h2>
+            <p> Sorteer de studenten of ga naar een squad pagina</p>
         </div>
-        <div class="filters">
+        <div class="filters vertical-layout">
             <div class="class">
                 <p class="vertical-layout">
-                    <span>
-                        Kies je klas: 
-                    </span>
                     <span class="span-classes vertical-layout">
-                        <a href="/class/2E">2E</a>
+                        <a href="/class/2E">Ga naar squad 2E</a>
                         <!-- of -->
-                        <a href="/class/2F">2F</a>
+                        <a href="/class/2F">Ga naar squad 2F</a>
                     </span>
                 </p>
             </div>
+            <form>
+                <select name="sort" on:change={handleChange}>
+                  <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
+                  <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
+                </select>
+            </form>
         </div>
         <div class="list-students">
             <ul>
@@ -121,7 +136,7 @@
         font-size: 16px;
     }
 
-    .title p {
+    .sub-title {
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
 
@@ -165,21 +180,24 @@
         }
     }
 
-    .filters a {
-        margin: 1rem;
-        padding: 1rem;
-        width: min-content;
-        border: 1px solid transparent;
-        border-radius: var(--b-radius-small);
-        box-shadow: 
-            /* box shadow color */
-            -5px 5px 1px transparent,
-            /* box shadow border */
-            -5px 5px 0 1px transparent
-        ; 
+    .filters {
+        @media (min-width: 940px) {
+            flex-direction: row;
+        }
     }
 
-    .filters a:hover {
+    select {
+        background-color: var(--secondary-background);
+        font-family: var(--primary-font), sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer; 
+        margin: 0 1rem;
+    }
+
+    .filters a, select {
+        padding: 1rem;
+        width: min-content;
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
@@ -187,7 +205,7 @@
             -5px 5px 1px var(--secondary-background),
             /* box shadow border */
             -5px 5px 0 1px var(--primary-text)
-        ;        
+        ; 
     }
 
     .active-link {
@@ -203,19 +221,10 @@
     }
 
     .span-classes {
-        gap: 0;
+        gap: 1rem;
          a {
             margin: 0 1rem; 
-        }
-
-        @media (min-width: 310px) {
-            display: inline-block;
-        }
-    }
-
-        @media (min-width: 400px) {
-        .filters p {
-            flex-direction: row; 
+            width: fit-content;
         }
     }
 
