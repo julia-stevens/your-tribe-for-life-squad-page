@@ -1,21 +1,23 @@
 <script>
+    import AnimationText from "$lib/components/AnimationText.svelte";
+
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const member = data.member; 
 </script>
 
-
 <main>
     <section>
+        
         <a href="/">Terug naar de squad</a>
-        <h1>{member.name}</h1>
-        <p class="year">FDND jaar 2025/2026</p>
-        <p>Squad: {member.squads[1].squad_id.name}</p>
-        <p>{member.bio}</p>
+        <AnimationText tag={"h1"} text={member.name}/>
+        <AnimationText className="year" tag={"p"} text="FDND jaar 2025/2026"/>
+        <AnimationText tag={"p"} text="Squad: {member.squads[1].squad_id.name}"/>
+        <AnimationText tag={"p"} text={member.bio}/>
     </section>
 
     <figure>
-        <img  src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
+        <img src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
         <figcaption>{member.name}</figcaption>
     </figure>
 </main>
