@@ -9,7 +9,7 @@
    // onMount voerd de onderstaande code pas uit als een element in de browser zichtbaar is
   onMount(() => {
         // Eerst de tekst splitsen in letters
-        const bounceText = new SplitText(".bounce-text", { type: "chars" });
+        const bounceText = new SplitText(".bounce-text", { type: "chars,words" });
 
         // Array met alle losse letters
         const chars = bounceText.chars;
