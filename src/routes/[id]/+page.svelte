@@ -8,7 +8,6 @@
 
 <main>
     <section>
-        
         <a href="/">Terug naar de squad</a>
         <AnimationText tag={"h1"} text={member.name}/>
         <AnimationText className="year" tag={"p"} text="FDND jaar 2025/2026"/>
@@ -75,7 +74,7 @@
 
         @media screen and (min-width: 800px) {
             width: 50%;
-            gap: 1.8em;
+            gap: 1.4em;
         }
     }
 
@@ -99,23 +98,14 @@
         }
     }
 
-    p {
+    :global(p) {
         max-width: 32em;
         line-height: 2em;
     }
 
-    p.year {
+    :global(.year) {
         font-size: 26px;
         margin: -.8em 0 0 0;
-    }
-
-
-    h1 {
-        font-size: 35px;
-
-         @media screen and (min-width: 800px) {
-             font-size: 45px;
-        }
     }
 
     figure {
