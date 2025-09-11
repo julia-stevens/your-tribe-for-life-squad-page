@@ -1,7 +1,5 @@
 <!-- Data inladen -->
 <script>
-    export const csr = false 
-    
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
