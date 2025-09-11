@@ -29,7 +29,7 @@
   <section class="info vertical-layout">
       <div class="title vertical-layout">
           <h1>Squadpage FDND</h1>
-          <p>Tweedejaars studenten 2025/2026</p>
+          <p class="sub-title">Tweedejaars studenten 2025/2026</p>
       </div>
       <div class="introduction">
           <p> 
