@@ -1,11 +1,11 @@
-export async function load({ url }) {
-    const sort = url.searchParams.get("sort") || "name"; // default sorteren op naam
+export async function load({ params, url }) {
+    const selectedClass = params.class;
+    const sort = url.searchParams.get("sort") || "name"; // default sorteren op name
   
     const baseUrl = "https://fdnd.directus.app/items/person";
     const fields =
       "*,squads.squad_id.name,squads.squad_id.cohort,squads.squad_id.tribe.name";
-    const filters =
-      "filter[squads][squad_id][cohort][_eq]=2526&filter[squads][squad_id][tribe][name][_eq]=FDND%20Jaar%202";
+    const filters = `filter[squads][squad_id][cohort][_eq]=2526&filter[squads][squad_id][tribe][name][_eq]=FDND%20Jaar%202&filter[squads][squad_id][name][_eq]=${selectedClass}`;
   
     let fetchUrl;
   
@@ -22,8 +22,8 @@ export async function load({ url }) {
   
     return {
       members: membersData.data,
+      selectedClass,
       sort
     };
   }
-  
   
