@@ -125,35 +125,38 @@ header {
     gap: 2rem;
     flex-direction: column;
     }
+
+    @view-transition {
+        navigation: auto; 
+    }
     
-/* Oude pagina schuift omhoog */
-@keyframes slide-old-up-stack {
-	from {
-		transform: translateY(0);
-	}
-	to {
-		transform: translateY(-100%);
-	}
-}
+    /* Oude pagina schuift omhoog */
+    @keyframes slide-old-up-stack {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
 
-/* Nieuwe pagina schuift omhoog samen met de oude pagina */
-@keyframes slide-new-up-stack {
-	from {
-		transform: translateY(100%);
-	}
-	to {
-		transform: translateY(0);
-	}
-}
+    /* Nieuwe pagina schuift omhoog samen met de oude pagina */
+    @keyframes slide-new-up-stack {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
 
-/* Animatie toepassen */
-:root::view-transition-old(root) {
-	animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-old-up-stack;
-    
-}
+    /* Animatie toepassen */
+    :root::view-transition-old(root) {
+        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-old-up-stack;
+        
+    }
 
-:root::view-transition-new(root) {
-	animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-new-up-stack;
-}
-
+    :root::view-transition-new(root) {
+        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-new-up-stack;
+    }
 </style>
