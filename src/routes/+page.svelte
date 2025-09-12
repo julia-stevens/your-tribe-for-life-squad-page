@@ -1,5 +1,8 @@
 <!-- Data inladen -->
 <script>
+    import AnimationText from "$lib/components/AnimationText.svelte";
+    import AnimationSection from "$lib/components/AnimationSection.svelte";
+
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
@@ -21,20 +24,18 @@
     <!-- Introductie -->
     <section class="info vertical-layout">
         <div class="title vertical-layout">
-            <h1>Squadpage FDND</h1>
-            <p class="sub-title">Tweedejaars studenten 2025/2026</p>
+            <AnimationText tag={"h1"} text="Squadpage FDND"/>
+            <AnimationText tag={"p"} className="sub-title" text="Tweedejaars studenten 2025/2026"/>
         </div>
         <div class="introduction">
-            <p> 
-                Welkom op de homepagina van FDND Jaar 2. Hier vind je een overzicht van alle squads met hun studenten en docenten. Klik op een squad of student/docent om meer te ontdekken en leer FDND Jaar 2 kennen!
-            </p>
+            <AnimationText tag={"p"} text="Welkom op de homepagina van FDND Jaar 2. Hier vind je een overzicht van alle squads met hun studenten en docenten. Klik op een squad of student/docent om meer te ontdekken en leer FDND Jaar 2 kennen!"/>
         </div>
     </section>
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
         <div class="title">
-            <h2>Overzicht tweedejaars</h2>
+        <AnimationText tag={"h2"} text="Overzicht studenten"/>
             <p> Sorteer de studenten of ga naar een squad pagina</p>
         </div>
         <div class="filters vertical-layout">
@@ -48,12 +49,13 @@
                 </p>
             </div>
             <form>
-                <select name="sort" on:change={handleChange}>
+                <select name="sort" onchange={handleChange}>
                   <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
                   <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
                 </select>
             </form>
         </div>
+
         <div class="list-students">
             <ul>
                 {#each members as member}
@@ -123,15 +125,6 @@
         margin: 0 auto;
     }
 
-    /* Reset */
-    h1 {
-        font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
-    }
-
-    h2 {
-        font-size: clamp(1rem, 1.116rem + 1.7937vw, 1.5rem);
-    }
-
     h3 {
         font-size: 16px;
     }
@@ -140,7 +133,8 @@
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
 
-    h1, h2, p {
+
+    :global(h1, h2, p) {
         line-height: 180%;
     }
 
@@ -164,7 +158,7 @@
     }
 
     /* Styling */
-    .introduction p {
+    :global(.introduction p) {
         max-width: 420px;
     }
 
@@ -195,9 +189,11 @@
         margin: 0 1rem;
     }
 
-    .filters a, select {
+    .filters a, select{
         padding: 1rem;
         width: min-content;
+        margin: 1rem;
+        padding: 1rem;
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
@@ -206,6 +202,10 @@
             /* box shadow border */
             -5px 5px 0 1px var(--primary-text)
         ; 
+    }
+
+    .filters p {
+       margin: 1.5em 0;
     }
 
     .active-link {

@@ -1,8 +1,21 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
 	import Title from '$lib/+title.svelte';
-
+    
 	let { children } = $props();
+
+    import { onNavigate } from '$app/navigation';
+
+    onNavigate((navigation) => {
+        if (!document.startViewTransition) return;
+
+        return new Promise((resolve) => {
+            document.startViewTransition(async () => {
+                resolve();
+                await navigation.complete;
+            });
+        });
+    });
 </script>
 
 <svelte:head>
@@ -12,15 +25,15 @@
 
 <main>
 	<header> 
-	<img class="header-logo" src="hva-blank.svg" alt="naar de homepagina" height="50">
-	<img class="header-logo" src="fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;">
+	<img class="header-logo" src="../hva-blank.svg" alt="naar de homepagina" height="50">
+	<img class="header-logo" src="../fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;">
 	<a href="https://programma.fdnd.nl/" class="home">Bekijk het programma</a>
     </header>
 
 {@render children?.()}
 
 <footer>
-        <img class="header-logo" src="hva-blank.svg" alt="naar de homepagina" height="50">
+        <img class="header-logo" src="../hva-blank.svg" alt="naar de homepagina" height="50">
     <h2>Creating Tomorrow</h2>
 	<p>Amber, Stella & Julia | FDND 2025/2026</p>
 </footer>
@@ -124,5 +137,40 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-}
+    flex-direction: column;
+    }
+
+    @view-transition {
+        navigation: auto; 
+    }
+    
+    /* Oude pagina schuift omhoog */
+    @keyframes slide-old-up-stack {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+
+    /* Nieuwe pagina schuift omhoog samen met de oude pagina */
+    @keyframes slide-new-up-stack {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    /* Animatie toepassen */
+    :root::view-transition-old(root) {
+        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-old-up-stack;
+        
+    }
+
+    :root::view-transition-new(root) {
+        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-new-up-stack;
+    }
 </style>
