@@ -8,17 +8,21 @@
 
 <main>
     <section>
-        <a href="/">Terug naar de squad</a>
+        <a class="back" href="/">Terug</a> 
+        <p class="breadcrumb-mobile"><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
         <AnimationText tag={"h1"} text={member.name}/>
         <AnimationText className="year" tag={"p"} text="FDND jaar 2025/2026"/>
         <AnimationText tag={"p"} text="Squad: {member.squads[1].squad_id.name}"/>
         <AnimationText tag={"p"} text={member.bio}/>
     </section>
 
-    <figure>
-        <img src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
-        <figcaption>{member.name}</figcaption>
-    </figure>
+    <div class="wrapper-detail">
+        <p><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
+        <figure>
+            <img  src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
+            <figcaption>{member.name}</figcaption>
+        </figure>
+    </div>
 </main>
 
 <style>
@@ -78,23 +82,28 @@
         }
     }
 
-    a {
+    section .back {
         text-decoration: none;
-        padding: .4em .8em;
-        border: 1px solid var(--primary-text);
-        border-radius: 2em;
-        font-weight: 600;
-        transition: .2s ease-in-out;
-        margin: 0 0 1em 0;
+        padding: 1em;
+        margin: 0 0 2em 0;
+        border: 1px solid var(--primary-text) !important;
+        border-radius: .3em;
+        box-shadow: 
+            /* box shadow color */
+            -5px 5px 1px var(--primary-highlight),
+            /* box shadow border */
+            -5px 5px 0 1px var(--primary-text) !important
+        ;
+        background-color: var(--primary-highlight);
+    }
 
-        &:hover {
-            background-color: var(--primary-highlight);
-            border: 1px solid var(--primary-highlight);
-            transition: .2s ease-in-out;
-        }
+    section a {
+        text-decoration: none;
+    }
 
-        &:focus {
-            border: 1px solid var(--primary-text);
+    .breadcrumb-mobile {
+        @media screen and (min-width: 800px) {
+             display: none;
         }
     }
 
@@ -106,6 +115,28 @@
     :global(.year) {
         font-size: 26px;
         margin: -.8em 0 0 0;
+    }
+
+
+    h1 {
+        font-size: 35px;
+
+         @media screen and (min-width: 800px) {
+             font-size: 45px;
+        }
+    }
+
+    .wrapper-detail p {
+        margin: 0 0 1em 0;
+        display: none;
+
+        @media screen and (min-width: 800px) {
+             display: block;
+        }
+    }
+
+    .wrapper-detail p a{
+        text-decoration: none;
     }
 
     figure {
