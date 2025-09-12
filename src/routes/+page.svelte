@@ -1,5 +1,8 @@
 <!-- Data inladen -->
 <script>
+    import AnimationText from "$lib/components/AnimationText.svelte";
+    import AnimationSection from "$lib/components/AnimationSection.svelte";
+
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
     const members = data.members; 
@@ -10,31 +13,28 @@
     <!-- Introductie -->
     <section class="info vertical-layout">
         <div class="title vertical-layout">
-            <h1>Squadpage FDND</h1>
-            <p>Tweedejaars studenten 2025/2026</p>
+            <AnimationText tag={"h1"} text="Squadpage FDND"/>
+            <AnimationText tag={"p"} text="Tweedejaars studenten 2025/2026"/>
         </div>
         <div class="introduction">
-            <p> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-            </p>
+            <AnimationText tag={"p"} text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."/>
         </div>
     </section>
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
         <div class="title">
-            <h2>Overzicht studenten</h2>
+            <AnimationText tag={"h2"} text="Overzicht studenten"/>
         </div>
-        <div class="filters">
-            <div class="class">
-                <p>
-                    Kies je klas: 
-                    <a href="/">2E</a>
-                    of
-                    <a href="/" class="active-link">2F</a>
-                </p>
-            </div>
-        </div>
+        <AnimationSection tag="div" className="filters">
+            <p>
+                Kies je klas: 
+                <a href="/">2E</a>
+                of
+                <a href="/" class="active-link">2F</a>
+            </p>
+        </AnimationSection>
+
         <div class="list-students">
             <ul>
                 {#each members as member}
@@ -104,24 +104,15 @@
         margin: 0 auto;
     }
 
-    /* Reset */
-    h1 {
-        font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
-    }
-
-    h2 {
-        font-size: clamp(1rem, 1.116rem + 1.7937vw, 1.5rem);
-    }
-
     h3 {
         font-size: 16px;
     }
 
-    .title p {
+    :global(.title p) {
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
 
-    h1, h2, p {
+    :global(h1, h2, p) {
         line-height: 180%;
     }
 
@@ -145,7 +136,7 @@
     }
 
     /* Styling */
-    .introduction p {
+    :global(.introduction p) {
         max-width: 420px;
     }
 
@@ -161,7 +152,7 @@
         }
     }
 
-    .filters a {
+    :global(.filters a) {
         margin: 1rem;
         padding: 1rem;
         border: 1px solid transparent;
@@ -174,7 +165,7 @@
         ; 
     }
 
-    .filters a:hover {
+    :global(.filters a:hover) {
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
@@ -183,6 +174,10 @@
             /* box shadow border */
             -5px 5px 0 1px var(--primary-text)
         ;        
+    }
+
+    :global(.filters p) {
+       margin: 1.5em 0;
     }
 
     .active-link {
