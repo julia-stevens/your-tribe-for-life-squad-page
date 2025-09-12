@@ -34,9 +34,9 @@
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
-        <div class="title">
+        <div class="title vertical-layout">
         <AnimationText tag={"h2"} text="Overzicht studenten"/>
-            <p> Sorteer de studenten of ga naar een squad pagina</p>
+        <AnimationText tag={"p"} text="Sorteer de studenten of ga naar een squad pagina"/>
         </div>
         <div class="filters vertical-layout">
             <div class="class">
