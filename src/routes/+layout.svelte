@@ -138,6 +138,10 @@ header {
         p {
             text-align: center;
         }
+
+        @media screen and (min-width: 800px) {
+            flex-direction: row;
+        }
     }
 
     @view-transition {
