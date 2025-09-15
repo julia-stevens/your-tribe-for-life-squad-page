@@ -51,20 +51,24 @@
     main {
         display: flex;
         flex-direction: column;
-        height: 100vh;
         gap: 2em;
         align-items: left;
-        padding: 2em 1em;
+        padding: 6em 2em 3em 2em;
         background-color: var(--secondary-color);
         position: relative;
         border-radius: 1em;
 
         @media screen and (min-width: 800px) {
+            height: 100vh;
             flex-direction: row;
-            padding: 2em 9em;
+            padding: 2em 10em;
             justify-content: center;
-             gap: 10em;
-              align-items: center;
+            gap: 2em;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 1000px) {
+            gap: 3em;
         }
     }
 
@@ -157,7 +161,13 @@
 
         @media screen and (min-width: 800px) {
             width: 25em;
-            min-width: 22em;
+            max-width: 15em;
+        }
+
+        @media screen and (min-width: 1000px) {
+            width: 25em;
+            min-width: 20em;
+            max-width: 15em;
         }
     }
 
@@ -174,6 +184,11 @@
         border-radius: 0.4em;
 
         @media screen and (min-width: 800px) {
+            height: 15.5em;
+            width: 100%;
+        }
+
+        @media screen and (min-width: 1-00px) {
             height: 18.5em;
             width: 100%;
         }

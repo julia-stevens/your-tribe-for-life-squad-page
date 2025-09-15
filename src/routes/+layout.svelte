@@ -43,7 +43,7 @@
     padding: 0; 
 }
 
-main {
+:global(body) {
     --primary-color: #A675F4;
     --secondary-color:  #ececec;
 	--primary-highlight: #66e5bf;
@@ -55,14 +55,8 @@ main {
     font-family: "Open Sans", serif;
     font-size: 16px; 
 	background-color: var(--primary-color);
-    
-
-}
-
-main {
-
-    background-color: var(--secondary-color);
-    border: #A675F4 20px solid;
+    padding: 1em;
+    margin: 0;
 }
 
 header {
@@ -70,21 +64,33 @@ header {
     color: var(--primary-text);
     border-radius: 0 0 var(--section-radius) var(--section-radius);
     padding: var(--section-padding);
-    margin-left: 15%;
-    position: sticky; 
-    width: 70%;
+    position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%); 
     z-index: 99;
-
-    /* Flex */
-    display: flex; 
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; 
     gap: 2rem;
+    width: 93%;
+
+    @media screen and (min-width: 800px) {
+        width: 75%;
+        margin: auto;
+    }
 }
 
     .header-logo {
-        width: 30%;
+        width: 5em;
+    }
+
+    .header-logo-hva {
+        display: none;
+
+        @media screen and (min-width: 800px) {
+            display: block;
+        }
     }
 
      .home {
@@ -96,7 +102,7 @@ header {
         border-radius: .5em;
         font-weight: 600;
         transition: .2s ease-in-out;
-        margin: 0 0 1em 0;
+        margin: -.5em 0 0 0;
 
         box-shadow:
             -5px 5px 1px var(--primary-highlight),
@@ -116,25 +122,22 @@ header {
         }
     }
 
-
-
     footer {
-    background-color: var(--primary-color);
-    color: var(--primary-text);
-    border-radius: var(--section-radius) var(--section-radius) 0 0;
-    padding: var(--section-padding);
-    margin-left: 2%;
-    position: sticky; 
-    width: 96%;
-    top: 0;
-    z-index: 99;
+        background-color: var(--primary-color);
+        color: var(--primary-text);
+        border-radius: var(--section-radius) var(--section-radius) 0 0;
+        padding: 3em 1em 1em 1em;
 
-    /* Flex */
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-direction: column;
+        /* Flex */
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-direction: column;
+
+        p {
+            text-align: center;
+        }
     }
 
     @view-transition {
