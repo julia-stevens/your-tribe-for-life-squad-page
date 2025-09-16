@@ -6,6 +6,13 @@
 
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
+    let members = $state(data.members);
+    let sort = $state(data.sort); 
+
+    $effect(() => {
+        members = data.members;
+        sort = data.sort; 
+    });
 
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
