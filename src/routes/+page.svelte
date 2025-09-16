@@ -2,6 +2,7 @@
 <script>
     import AnimationText from "$lib/components/AnimationText.svelte";
     import AnimationSection from "$lib/components/AnimationSection.svelte";
+    import StudentCard from "$lib/components/StudentCard.svelte";
 
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
@@ -60,7 +61,8 @@
             <ul>
                 {#each members as member}
                     <li>
-                        <article class="vertical-layout">
+                      <StudentCard {member} />
+                        <!-- <article class="vertical-layout">
                             <div class="name vertical-layout">
                                 <h3>{member.name}</h3>
                                 <a href="/{member.id}">
@@ -78,7 +80,7 @@
                                     height="50" 
                                     style="object-fit:cover;">
                             </div>
-                        </article>
+                        </article> -->
                     </li>
                 {/each}
             </ul>
@@ -132,7 +134,6 @@
     .sub-title {
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
-
 
     :global(h1, h2, p) {
         line-height: 180%;
@@ -205,7 +206,7 @@
     }
 
     .filters p {
-       margin: 1.5em 0;
+      margin: 1.5em 0;
     }
 
     .active-link {
@@ -222,7 +223,7 @@
 
     .span-classes {
         gap: 1rem;
-         a {
+          a {
             margin: 0 1rem; 
             width: fit-content;
         }
@@ -242,68 +243,4 @@
         grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
         gap: 2rem;
     }
-
-    article {
-        border: 1px solid var(--primary-text);
-        border-radius: var(--b-radius-small);
-        box-shadow: 
-            /* box shadow color */
-            -5px 5px 1px var(--primary-highlight),
-            /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
-        ;
-        padding: 1rem 2rem;
-        max-width: 255px;
-    }
-
-    article .name {
-        order: 1;
-        justify-content: space-between;
-    }
-
-    article .avatar {
-        width: fit-content;
-        max-width: 189px;
-        height: fit-content;
-        max-height: 189px;
-        overflow: hidden;
-    }
-
-    article .avatar img {
-        width: 100%; 
-        height: 100%;
-        border-radius: var(--b-radius-small);
-    }
-
-    @media (min-width: 280px) {
-        article .name {
-            flex-direction: row;
-        }
-    }
-
-    /* Animations */
-    li:hover {
-        cursor: pointer;
-
-        .link-icon { 
-            animation: shake .2s ease-in 2;
-        }
-    }
-
-    @keyframes shake {
-    0%, 100% {
-        rotate: 0deg;
-        scale: 1;
-    }    
-    25% {
-        rotate: 10deg;
-        scale: 1.15;
-    }
-    50% {
-        rotate: 0deg;
-    }
-    75% {
-        rotate: -10deg;
-    }
-}
 </style>
