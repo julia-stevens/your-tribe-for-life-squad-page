@@ -49,7 +49,7 @@
             <div class="class">
                 <p class="vertical-layout">
                     <span class="span-classes vertical-layout">
-                        <a href="/">Terug naar home</a>
+                        <a href="/" class="to-home">Terug naar home</a>
                         <a href="/squad/2E" class={selectedClass === "2E" ? "active-link" : ""}>Ga naar squad 2E</a>
                         <!-- of -->
                         <a href="/squad/2F" class={selectedClass === "2F" ? "active-link" : ""}>Ga naar squad 2F</a>
@@ -102,12 +102,6 @@
     }
 
     main {
-        /* --primary-color: #A675F4;
-        --secondary-color: #ECECEC;
-        --primary-highlight: #67E5BF; 
-        --primary-text: #050542; 
-        --secondary-text: #01A581;  */
-
         /* Border radius */
         --b-radius-small: 5px; 
         --b-radius-large: 12px; 
@@ -215,7 +209,7 @@
             -5px 5px 0 1px var(--primary-text); 
     }
 
-    .active-link {
+    .filters .active-link {
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
@@ -232,6 +226,17 @@
             margin: 0 1rem; 
             width: fit-content;
         }
+    }
+
+    .filters .to-home {
+        border: transparent;
+        box-shadow: none;
+        text-decoration: underline;
+        transition: .2s ease-in; 
+    }
+
+    .to-home:hover {
+        color: var(--primary-color);
     }
 
     .overview {
