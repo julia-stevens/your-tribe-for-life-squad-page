@@ -6,8 +6,6 @@
 
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
-    const members = data.members; 
-    const sort = data.sort; 
 
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
@@ -62,25 +60,6 @@
                 {#each members as member}
                     <li>
                         <StudentCard {member} />
-                        <!-- <article class="vertical-layout">
-                            <div class="name vertical-layout">
-                                <h3>{member.name}</h3>
-                                <a href="/{member.id}">
-                                    <img 
-                                    src="link-icon.svg" 
-                                    alt="Link icoon"
-                                    class="link-icon">
-                                </a>
-                            </div>
-                            <div class="avatar">
-                                <img 
-                                    src="{member.avatar || "default-avatar.jpg"}" 
-                                    alt="Avatar van {member.name}" 
-                                    width="50" 
-                                    height="50" 
-                                    style="object-fit:cover;">
-                            </div>
-                        </article> -->
                     </li>
                 {/each}
             </ul>
@@ -118,10 +97,6 @@
 
         max-width: 1000px;
         margin: 0 auto;
-    }
-
-    h3 {
-        font-size: 16px;
     }
 
     /* .sub-title {
@@ -200,17 +175,6 @@
 
     .filters p {
       margin: 1.5em 0;
-    }
-
-    .active-link {
-        border: 1px solid var(--primary-text);
-        border-radius: var(--b-radius-small);
-        box-shadow: 
-            /* box shadow color */
-            -5px 5px 1px var(--primary-highlight),
-            /* box shadow border */
-            -5px 5px 0 1px var(--primary-text);
-        background-color: var(--primary-highlight);
     }
 
     .span-classes {
