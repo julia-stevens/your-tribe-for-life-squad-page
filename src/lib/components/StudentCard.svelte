@@ -20,7 +20,7 @@
             alt="Avatar van {member.name}" 
             width="50" 
             height="50" 
-            style="object-fit:cover;">
+        >
     </div>
 </article>
 
@@ -58,6 +58,7 @@
         width: 100%; 
         height: 100%;
         border-radius: var(--b-radius-small);
+        object-fit: cover;
     }
 
     @media (min-width: 280px) {
