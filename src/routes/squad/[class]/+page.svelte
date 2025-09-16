@@ -185,7 +185,7 @@
         }
 
         .title {
-            gap: 0 !important;
+            gap: 0;
         }
     }
 
@@ -216,14 +216,13 @@
     }
 
     .active-link {
-        border: 1px solid var(--primary-text) !important;
+        border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
             /* box shadow color */
             -5px 5px 1px var(--primary-highlight),
             /* box shadow border */
-            -5px 5px 0 1px var(--primary-text) !important
-        ;
+            -5px 5px 0 1px var(--primary-text);
         background-color: var(--primary-highlight);
     }
 
