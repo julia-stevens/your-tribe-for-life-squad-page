@@ -50,9 +50,9 @@
                 <p class="vertical-layout">
                     <span class="span-classes vertical-layout">
                         <a href="/">Terug naar home</a>
-                        <a href="/class/2E" class={selectedClass === "2E" ? "active-link" : ""}>Ga naar squad 2E</a>
+                        <a href="/squad/2E" class={selectedClass === "2E" ? "active-link" : ""}>Ga naar squad 2E</a>
                         <!-- of -->
-                        <a href="/class/2F" class={selectedClass === "2F" ? "active-link" : ""}>Ga naar squad 2F</a>
+                        <a href="/squad/2F" class={selectedClass === "2F" ? "active-link" : ""}>Ga naar squad 2F</a>
                     </span>
                 </p>
             </div>

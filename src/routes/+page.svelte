@@ -43,16 +43,16 @@
             <div class="class">
                 <p class="vertical-layout">
                     <span class="span-classes vertical-layout">
-                        <a href="/class/2E">Ga naar squad 2E</a>
+                        <a href="/squad/2E">Ga naar squad 2E</a>
                         <!-- of -->
-                        <a href="/class/2F">Ga naar squad 2F</a>
+                        <a href="/squad/2F">Ga naar squad 2F</a>
                     </span>
                 </p>
             </div>
             <form>
                 <select name="sort" onchange={handleChange}>
-                  <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
-                  <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
+                    <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
+                    <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
                 </select>
             </form>
         </div>
@@ -61,7 +61,7 @@
             <ul>
                 {#each members as member}
                     <li>
-                      <StudentCard {member} />
+                        <StudentCard {member} />
                         <!-- <article class="vertical-layout">
                             <div class="name vertical-layout">
                                 <h3>{member.name}</h3>
