@@ -67,8 +67,6 @@
     }  
 
     article:hover {
-        cursor: pointer;
-
         .link-icon { 
             animation: shake .2s ease-in 2;
         }
