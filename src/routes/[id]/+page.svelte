@@ -33,11 +33,6 @@
         scroll-behavior: smooth;
         padding: 0;
         margin: 0;
-        --primary-color: #A675F4;
-        --secondary-color: #ececec;
-        --primary-highlight: #66e5bf;
-        --primary-text: #050542;
-        --secondary-text: #01A581;
         --section-radius: .5rem;
         --section-padding: .5em 1em;
         font-family: "Open Sans", sans-serif;

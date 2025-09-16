@@ -96,13 +96,6 @@
     }
 
     main {
-        /* Kleuren */
-        --primary-background: #A675F4;
-        --secondary-background: #ECECEC;
-        --primary-highlight: #67E5BF; 
-        --primary-text: #050542; 
-        --secondary-text: #01A581; 
-
         /* Border radius */
         --b-radius-small: 5px; 
         --b-radius-large: 12px; 
@@ -115,7 +108,7 @@
         --padding-medium: 1rem 2rem; 
         --padding-large: 3rem 2rem;
 
-        background-color: var(--secondary-background);
+        background-color: var(--secondary-color);
         border-radius: var(--b-radius-large);
         padding: var(--padding-large);
 
@@ -131,9 +124,9 @@
         font-size: 16px;
     }
 
-    .sub-title {
+    /* .sub-title {
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
-    }
+    } */
 
     :global(h1, h2, p) {
         line-height: 180%;
@@ -182,7 +175,7 @@
     }
 
     select {
-        background-color: var(--secondary-background);
+        background-color: var(--secondary-color);
         font-family: var(--primary-font), sans-serif;
         font-size: 16px;
         font-weight: 300;
@@ -199,7 +192,7 @@
         border-radius: var(--b-radius-small);
         box-shadow: 
             /* box shadow color */
-            -5px 5px 1px var(--secondary-background),
+            -5px 5px 1px var(--secondary-color),
             /* box shadow border */
             -5px 5px 0 1px var(--primary-text)
         ; 

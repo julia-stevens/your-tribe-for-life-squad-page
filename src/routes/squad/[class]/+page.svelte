@@ -102,12 +102,11 @@
     }
 
     main {
-        /* Kleuren */
-        --primary-background: #A675F4;
-        --secondary-background: #ECECEC;
+        /* --primary-color: #A675F4;
+        --secondary-color: #ECECEC;
         --primary-highlight: #67E5BF; 
         --primary-text: #050542; 
-        --secondary-text: #01A581; 
+        --secondary-text: #01A581;  */
 
         /* Border radius */
         --b-radius-small: 5px; 
@@ -121,7 +120,7 @@
         --padding-medium: 1rem 2rem; 
         --padding-large: 3rem 2rem;
 
-        background-color: var(--secondary-background);
+        background-color: var(--secondary-color);
         border-radius: var(--b-radius-large);
         padding: var(--padding-large);
 
@@ -197,7 +196,7 @@
     }
 
     select {
-        background-color: var(--secondary-background);
+        background-color: var(--secondary-color);
         font-family: var(--primary-font), sans-serif;
         font-size: 16px;
         font-weight: 300;
@@ -211,10 +210,9 @@
         border-radius: var(--b-radius-small);
         box-shadow: 
             /* box shadow color */
-            -5px 5px 1px var(--secondary-background),
+            -5px 5px 1px var(--secondary-color),
             /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
-        ; 
+            -5px 5px 0 1px var(--primary-text); 
     }
 
     .active-link {
@@ -252,67 +250,4 @@
         gap: 2rem;
     }
 
-    article {
-        border: 1px solid var(--primary-text);
-        border-radius: var(--b-radius-small);
-        box-shadow: 
-            /* box shadow color */
-            -5px 5px 1px var(--primary-highlight),
-            /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
-        ;
-        padding: 1rem 2rem;
-        max-width: 255px;
-    }
-
-    article .name {
-        order: 1;
-        justify-content: space-between;
-    }
-
-    article .avatar {
-        width: fit-content;
-        max-width: 189px;
-        height: fit-content;
-        max-height: 189px;
-        overflow: hidden;
-    }
-
-    article .avatar img {
-        width: 100%; 
-        height: 100%;
-        border-radius: var(--b-radius-small);
-    }
-
-    @media (min-width: 280px) {
-        article .name {
-            flex-direction: row;
-        }
-    }
-
-    /* Animations */
-    li:hover {
-        cursor: pointer;
-
-        .link-icon { 
-            animation: shake .2s ease-in 2;
-        }
-    }
-
-    @keyframes shake {
-    0%, 100% {
-        rotate: 0deg;
-        scale: 1;
-    }    
-    25% {
-        rotate: 10deg;
-        scale: 1.15;
-    }
-    50% {
-        rotate: 0deg;
-    }
-    75% {
-        rotate: -10deg;
-    }
-    }
 </style>
