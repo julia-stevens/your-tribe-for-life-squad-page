@@ -22,22 +22,19 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-
-<main>
-	<header> 
-	<img class="header-logo" src="../hva-blank.svg" alt="naar de homepagina" height="50">
-	<img class="header-logo" src="../fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;">
-	<a href="https://programma.fdnd.nl/" class="home">Bekijk het programma</a>
-    </header>
+<header> 
+	    <a class="header-logo-hva" href="/"><img src="../hva-blank.svg" alt="naar de homepagina" height="50"></a>
+	    <a href="/"><img class="header-logo" src="../fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;"></a>
+	    <a href="https://programma.fdnd.nl/" class="home">Bekijk programma</a>
+</header>
 
 {@render children?.()}
 
 <footer>
-        <img class="header-logo" src="../hva-blank.svg" alt="naar de homepagina" height="50">
+    <img class="header-logo" src="../hva-blank.svg" alt="naar de homepagina" height="50">
     <h2>Creating Tomorrow</h2>
 	<p>Amber, Stella & Julia | FDND 2025/2026</p>
 </footer>
-</main>
 
 <style>
 	* {
@@ -46,7 +43,7 @@
     padding: 0; 
 }
 
-main {
+:global(body) {
     --primary-color: #A675F4;
     --secondary-color:  #ececec;
 	--primary-highlight: #66e5bf;
@@ -58,14 +55,8 @@ main {
     font-family: "Open Sans", serif;
     font-size: 16px; 
 	background-color: var(--primary-color);
-    
-
-}
-
-main {
-
-    background-color: var(--secondary-color);
-    border: #A675F4 20px solid;
+    padding: 1em;
+    margin: 0;
 }
 
 header {
@@ -73,21 +64,33 @@ header {
     color: var(--primary-text);
     border-radius: 0 0 var(--section-radius) var(--section-radius);
     padding: var(--section-padding);
-    margin-left: 15%;
-    position: sticky; 
-    width: 70%;
+    position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%); 
     z-index: 99;
-
-    /* Flex */
-    display: flex; 
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; 
     gap: 2rem;
+    width: 93%;
+
+    @media screen and (min-width: 800px) {
+        width: 75%;
+        margin: auto;
+    }
 }
 
     .header-logo {
-        width: 30%;
+        width: 5em;
+    }
+
+    .header-logo-hva {
+        display: none;
+
+        @media screen and (min-width: 800px) {
+            display: block;
+        }
     }
 
      .home {
@@ -99,7 +102,7 @@ header {
         border-radius: .5em;
         font-weight: 600;
         transition: .2s ease-in-out;
-        margin: 0 0 1em 0;
+        margin: -.5em 0 0 0;
 
         box-shadow:
             -5px 5px 1px var(--primary-highlight),
@@ -119,25 +122,34 @@ header {
         }
     }
 
-
-
     footer {
-    background-color: var(--primary-color);
-    color: var(--primary-text);
-    border-radius: var(--section-radius) var(--section-radius) 0 0;
-    padding: var(--section-padding);
-    margin-left: 2%;
-    position: sticky; 
-    width: 96%;
-    top: 0;
-    z-index: 99;
+        background-color: var(--primary-color);
+        color: var(--primary-text);
+        border-radius: var(--section-radius) var(--section-radius) 0 0;
+        padding: 3em 0 1em 0em;
 
-    /* Flex */
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-direction: column;
+        /* Flex */
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-direction: column;
+        margin: auto;
+
+        width: 93%;
+
+        @media screen and (min-width: 800px) {
+            width: 75%;
+            margin: auto;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 800px) {
+            flex-direction: row;
+        }
     }
 
     @view-transition {

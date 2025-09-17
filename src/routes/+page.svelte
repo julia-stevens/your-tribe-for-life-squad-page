@@ -92,23 +92,29 @@
         /* Padding */
         --padding-small: 1rem .5rem; 
         --padding-medium: 1rem 2rem; 
-        --padding-large: 3rem 2rem;
+        --padding-large: 7rem 10rem;
 
         background-color: var(--secondary-color);
         border-radius: var(--b-radius-large);
-        padding: var(--padding-large);
 
         font-family: var(--primary-font), sans-serif;
         font-size: 16px;
         color: var(--primary-text);
-
-        max-width: 1000px;
+        
         margin: 0 auto;
     }
 
-    /* .sub-title {
-        font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
-    } */
+    main {
+        padding: 5em 2em;
+
+        @media screen and (min-width: 800px) {
+            padding: var(--padding-large);
+        }
+    }
+
+    h3 {
+        font-size: 16px;
+    }
 
     :global(h1, h2, p) {
         line-height: 180%;
@@ -181,14 +187,14 @@
     }
 
     .filters p {
-      margin: 1.5em 0;
+        margin: 1.5em 0;
     }
 
     .span-classes {
         gap: 1rem;
-          a {
-            margin: 0 1rem; 
-            width: fit-content;
+            a {
+                margin: 0 1rem; 
+                width: fit-content;
         }
     }
 
@@ -205,5 +211,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
         gap: 2rem;
+        justify-items: center
     }
 </style>
