@@ -1,5 +1,6 @@
 <script>
     import AnimationText from "$lib/components/AnimationText.svelte";
+    import StudentCard from "$lib/components/StudentCard.svelte";
 
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
@@ -18,10 +19,11 @@
 
     <div class="wrapper-detail">
         <p><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
-        <figure>
+        <StudentCard {member} />
+        <!-- <figure>
             <img  src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
             <figcaption>{member.name}</figcaption>
-        </figure>
+        </figure> -->
     </div>
 </main>
 
@@ -31,11 +33,6 @@
         scroll-behavior: smooth;
         padding: 0;
         margin: 0;
-        --primary-color: #A675F4;
-        --secondary-color: #ececec;
-        --primary-highlight: #66e5bf;
-        --primary-text: #050542;
-        --secondary-text: #01A581;
         --section-radius: .5rem;
         --section-padding: .5em 1em;
         font-family: "Open Sans", sans-serif;
@@ -107,7 +104,7 @@
 
     .breadcrumb-mobile {
         @media screen and (min-width: 800px) {
-             display: none;
+            display: none;
         }
     }
 
@@ -125,8 +122,8 @@
     h1 {
         font-size: 35px;
 
-         @media screen and (min-width: 800px) {
-             font-size: 45px;
+        @media screen and (min-width: 800px) {
+            font-size: 45px;
         }
     }
 
@@ -135,7 +132,7 @@
         display: none;
 
         @media screen and (min-width: 800px) {
-             display: block;
+            display: block;
         }
     }
 
@@ -143,7 +140,7 @@
         text-decoration: none;
     }
 
-    figure {
+    /* figure {
         width: 100%;
         max-width: 20em;
         padding: 3em 2.5em 1.5em;
@@ -153,10 +150,8 @@
         position: relative;
         z-index: 1;
         box-shadow:  
-             /* box shadow color */ 
-             -5px 5px 1px var(--primary-highlight), 
-             /* box shadow border */ 
-             -5px 5px 0 1px var(--primary-text) 
+            -5px 5px 1px var(--primary-highlight), 
+            -5px 5px 0 1px var(--primary-text) 
          ; 
 
         @media screen and (min-width: 800px) {
@@ -169,9 +164,9 @@
             min-width: 20em;
             max-width: 15em;
         }
-    }
+    } */
 
-    figcaption {
+    /* figcaption {
         font-size: 18px;
         font-weight: bold;
         padding: 1em 0 0 0;
@@ -192,6 +187,6 @@
             height: 18.5em;
             width: 100%;
         }
-    }
+    } */
 
 </style>

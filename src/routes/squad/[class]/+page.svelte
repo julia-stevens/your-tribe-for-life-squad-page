@@ -1,16 +1,20 @@
 <!-- Data inladen -->
 <script>
-    import AnimationText from "$lib/components/AnimationText.svelte";
-    import AnimationSection from "$lib/components/AnimationSection.svelte";
-    import StudentCard from "$lib/components/StudentCard.svelte";
-
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
-    const members = data.members; 
-    const sort = data.sort; 
+    let members = $state(data.members);
+    let selectedClass = $state(data.selectedClass);
+    let sort = $state(data.sort); 
+
+    $effect(() => {
+        members = data.members;
+        selectedClass = data.selectedClass;
+        sort = data.sort; 
+    });
 
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
+    import StudentCard from "$lib/components/StudentCard.svelte";
 
     function handleChange(event) {
         const value = event.target.value;
@@ -25,38 +29,40 @@
     <!-- Introductie -->
     <section class="info vertical-layout">
         <div class="title vertical-layout">
-            <AnimationText tag={"h1"} text="Squadpage FDND"/>
-            <AnimationText tag={"p"} className="sub-title" text="Tweedejaars studenten 2025/2026"/>
+            <h1>Squadpage FDND</h1>
+            <p class="sub-title">Tweedejaars studenten 2025/2026</p>
         </div>
         <div class="introduction">
-            <AnimationText tag={"p"} text="Welkom op de homepagina van FDND Jaar 2. Hier vind je een overzicht van alle squads met hun studenten en docenten. Klik op een squad of student/docent om meer te ontdekken en leer FDND Jaar 2 kennen!"/>
+            <p> 
+                Welkom bij de squadpage van squad {selectedClass}. Voor meer informatie over de student of docent, klik op het link icoon op de card. Neem een kijkje en leer de studenten en docenten beter kennen!
+            </p>
         </div>
     </section>
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
-        <div class="title vertical-layout">
-        <AnimationText tag={"h2"} text="Overzicht studenten"/>
-        <AnimationText tag={"p"} text="Sorteer de studenten of ga naar een squad pagina"/>
+        <div class="title">
+            <h2>Overzicht studenten {selectedClass}</h2>
+            <p>Sorteer de studenten of ga naar een squad pagina</p>
         </div>
         <div class="filters vertical-layout">
             <div class="class">
                 <p class="vertical-layout">
                     <span class="span-classes vertical-layout">
-                        <a href="/squad/2E">Ga naar squad 2E</a>
+                        <a href="/" class="to-home">Terug naar home</a>
+                        <a href="/squad/2E" class={selectedClass === "2E" ? "active-link" : ""}>Ga naar squad 2E</a>
                         <!-- of -->
-                        <a href="/squad/2F">Ga naar squad 2F</a>
+                        <a href="/squad/2F" class={selectedClass === "2F" ? "active-link" : ""}>Ga naar squad 2F</a>
                     </span>
                 </p>
             </div>
             <form>
-                <select name="sort" onchange={handleChange}>
-                    <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
-                    <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
+                <select name="sort" on:change={handleChange}>
+                <option value="name" selected={sort === "name"}>Naam</option>
+                <option value="age" selected={sort === "age"}>Leeftijd</option>
                 </select>
             </form>
         </div>
-
         <div class="list-students">
             <ul>
                 {#each members as member}
@@ -67,14 +73,14 @@
                                 <h3>{member.name}</h3>
                                 <a href="/{member.id}">
                                     <img 
-                                    src="link-icon.svg" 
+                                    src="../link-icon.svg" 
                                     alt="Link icoon"
                                     class="link-icon">
                                 </a>
                             </div>
                             <div class="avatar">
                                 <img 
-                                    src="{member.avatar || "default-avatar.jpg"}" 
+                                    src="{member.avatar || "../default-avatar.jpg"}" 
                                     alt="Avatar van {member.name}" 
                                     width="50" 
                                     height="50" 
@@ -106,35 +112,38 @@
         /* Padding */
         --padding-small: 1rem .5rem; 
         --padding-medium: 1rem 2rem; 
-        --padding-large: 7rem 10rem;
+        --padding-large: 3rem 2rem;
 
         background-color: var(--secondary-color);
         border-radius: var(--b-radius-large);
+        padding: var(--padding-large);
 
         font-family: var(--primary-font), sans-serif;
         font-size: 16px;
         color: var(--primary-text);
-        
+
+        max-width: 1000px;
         margin: 0 auto;
     }
 
-    main {
-        padding: 5em 2em;
+    /* Reset */
+    h1 {
+        font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
+    }
 
-        @media screen and (min-width: 800px) {
-            padding: var(--padding-large);
-        }
+    h2 {
+        font-size: clamp(1rem, 1.116rem + 1.7937vw, 1.5rem);
     }
 
     h3 {
         font-size: 16px;
     }
 
-    /* .sub-title {
+    .sub-title {
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
-    } */
+    }
 
-    :global(h1, h2, p) {
+    h1, h2, p {
         line-height: 180%;
     }
 
@@ -158,7 +167,7 @@
     }
 
     /* Styling */
-    :global(.introduction p) {
+    .introduction p {
         max-width: 420px;
     }
 
@@ -186,29 +195,21 @@
         font-size: 16px;
         font-weight: 300;
         cursor: pointer; 
-        margin: 0 1rem;
     }
 
-    .filters a, select{
+    .filters a, select {
         padding: 1rem;
         width: min-content;
-        margin: 1rem;
-        padding: 1rem;
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
             /* box shadow color */
             -5px 5px 1px var(--secondary-color),
             /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
-        ; 
+            -5px 5px 0 1px var(--primary-text); 
     }
 
-    .filters p {
-      margin: 1.5em 0;
-    }
-
-    .active-link {
+    .filters .active-link {
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
         box-shadow: 
@@ -221,10 +222,21 @@
 
     .span-classes {
         gap: 1rem;
-          a {
+        a {
             margin: 0 1rem; 
             width: fit-content;
         }
+    }
+
+    .filters .to-home {
+        border: transparent;
+        box-shadow: none;
+        text-decoration: underline;
+        transition: .2s ease-in; 
+    }
+
+    .to-home:hover {
+        color: var(--primary-color);
     }
 
     .overview {
@@ -240,6 +252,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
         gap: 2rem;
-        justify-items: center
     }
+
 </style>
