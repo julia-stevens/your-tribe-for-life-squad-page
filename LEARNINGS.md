@@ -19,6 +19,9 @@
 - In PR's hebben we ons gehouden aan de afgesproken werkwijze en template.
 - We hebben ons gehouden aan code conventies: bv kebab-casing, semantische HTML, custom properties waar nodig, camelCasing in JS, mobile first en Engelse naamgeving.
 
+### Conclusie
+Het was een prettige samenwerking, door de duidelijk communicatie, taakverdeling en planning. Teamleden hielden zich aan gemaakte afpsraken en kon elkaar om hulp vragen. Een volgende keer zouden we meer afspraken willen maken over de inhoud van de issues, om een duidelijk beeld te krijgen van waar iemand in een issue aan werkt. 
+
 ## Individuele feedback 
 ### Amber 
 #### Hoe heb je mij als teamlid ervaren
