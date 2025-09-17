@@ -6,8 +6,13 @@
 
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
-    const members = data.members; 
-    const sort = data.sort; 
+    let members = $state(data.members);
+    let sort = $state(data.sort); 
+
+    $effect(() => {
+        members = data.members;
+        sort = data.sort; 
+    });
 
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
@@ -62,25 +67,6 @@
                 {#each members as member}
                     <li>
                         <StudentCard {member} />
-                        <!-- <article class="vertical-layout">
-                            <div class="name vertical-layout">
-                                <h3>{member.name}</h3>
-                                <a href="/{member.id}">
-                                    <img 
-                                    src="link-icon.svg" 
-                                    alt="Link icoon"
-                                    class="link-icon">
-                                </a>
-                            </div>
-                            <div class="avatar">
-                                <img 
-                                    src="{member.avatar || "default-avatar.jpg"}" 
-                                    alt="Avatar van {member.name}" 
-                                    width="50" 
-                                    height="50" 
-                                    style="object-fit:cover;">
-                            </div>
-                        </article> -->
                     </li>
                 {/each}
             </ul>
@@ -129,10 +115,6 @@
     h3 {
         font-size: 16px;
     }
-
-    /* .sub-title {
-        font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
-    } */
 
     :global(h1, h2, p) {
         line-height: 180%;
@@ -205,25 +187,14 @@
     }
 
     .filters p {
-      margin: 1.5em 0;
-    }
-
-    .active-link {
-        border: 1px solid var(--primary-text);
-        border-radius: var(--b-radius-small);
-        box-shadow: 
-            /* box shadow color */
-            -5px 5px 1px var(--primary-highlight),
-            /* box shadow border */
-            -5px 5px 0 1px var(--primary-text);
-        background-color: var(--primary-highlight);
+        margin: 1.5em 0;
     }
 
     .span-classes {
         gap: 1rem;
-          a {
-            margin: 0 1rem; 
-            width: fit-content;
+            a {
+                margin: 0 1rem; 
+                width: fit-content;
         }
     }
 

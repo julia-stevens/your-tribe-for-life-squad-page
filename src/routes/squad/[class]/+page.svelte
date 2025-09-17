@@ -15,6 +15,7 @@
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
     import StudentCard from "$lib/components/StudentCard.svelte";
+    import OverviewTitle from "$lib/components/OverviewTitle.svelte";
 
     function handleChange(event) {
         const value = event.target.value;
@@ -41,10 +42,11 @@
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
-        <div class="title">
+        <OverviewTitle {selectedClass}/>
+        <!-- <div class="title">
             <h2>Overzicht studenten {selectedClass}</h2>
             <p>Sorteer de studenten of ga naar een squad pagina</p>
-        </div>
+        </div> -->
         <div class="filters vertical-layout">
             <div class="class">
                 <p class="vertical-layout">
@@ -57,9 +59,9 @@
                 </p>
             </div>
             <form>
-                <select name="sort" on:change={handleChange}>
-                <option value="name" selected={sort === "name"}>Naam</option>
-                <option value="age" selected={sort === "age"}>Leeftijd</option>
+                <select name="sort" onchange={handleChange}>
+                    <option value="name" selected={sort === "name"}>Naam</option>
+                    <option value="age" selected={sort === "age"}>Leeftijd</option>
                 </select>
             </form>
         </div>
@@ -68,25 +70,6 @@
                 {#each members as member}
                     <li>
                         <StudentCard {member} />
-                        <!-- <article class="vertical-layout">
-                            <div class="name vertical-layout">
-                                <h3>{member.name}</h3>
-                                <a href="/{member.id}">
-                                    <img 
-                                    src="../link-icon.svg" 
-                                    alt="Link icoon"
-                                    class="link-icon">
-                                </a>
-                            </div>
-                            <div class="avatar">
-                                <img 
-                                    src="{member.avatar || "../default-avatar.jpg"}" 
-                                    alt="Avatar van {member.name}" 
-                                    width="50" 
-                                    height="50" 
-                                    style="object-fit:cover;">
-                            </div>
-                        </article> -->
                     </li>
                 {/each}
             </ul>
@@ -112,7 +95,7 @@
         /* Padding */
         --padding-small: 1rem .5rem; 
         --padding-medium: 1rem 2rem; 
-        --padding-large: 3rem 2rem;
+        --padding-large: 7rem 10rem;
 
         background-color: var(--secondary-color);
         border-radius: var(--b-radius-large);
@@ -122,8 +105,16 @@
         font-size: 16px;
         color: var(--primary-text);
 
-        max-width: 1000px;
+        /* max-width: 1000px; */
         margin: 0 auto;
+    }
+
+    main {
+        padding: 5em 2em;
+
+        @media screen and (min-width: 800px) {
+            padding: var(--padding-large);
+        }
     }
 
     /* Reset */
@@ -131,19 +122,11 @@
         font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
     }
 
-    h2 {
-        font-size: clamp(1rem, 1.116rem + 1.7937vw, 1.5rem);
-    }
-
-    h3 {
-        font-size: 16px;
-    }
-
     .sub-title {
         font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
 
-    h1, h2, p {
+    h1, p {
         line-height: 180%;
     }
 
@@ -178,9 +161,9 @@
             align-items: center;
         }
 
-        .title {
+        /* .title {
             gap: 0;
-        }
+        } */
     }
 
     .filters {
