@@ -6,13 +6,9 @@
 
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
-    let members = $state(data.members);
-    let sort = $state(data.sort); 
-
-    $effect(() => {
-        members = data.members;
-        sort = data.sort; 
-    });
+    const members = data.members; 
+    const sort = data.sort; 
+    const triggers = members.map((_, i) => `--trigger${i}`).join(", ");
 
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
@@ -40,32 +36,46 @@
 
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
-        <div class="title vertical-layout">
-        <AnimationText tag={"h2"} text="Overzicht studenten"/>
-        <AnimationText tag={"p"} text="Sorteer de studenten of ga naar een squad pagina"/>
-        </div>
-        <div class="filters vertical-layout">
-            <div class="class">
-                <p class="vertical-layout">
-                    <span class="span-classes vertical-layout">
-                        <a href="/squad/2E">Ga naar squad 2E</a>
-                        <!-- of -->
-                        <a href="/squad/2F">Ga naar squad 2F</a>
-                    </span>
-                </p>
+        <div class="sort-and-links">
+            <div class="title vertical-layout">
+            <AnimationText tag={"h2"} text="Overzicht studenten"/>
+            <AnimationText tag={"p"} text="Sorteer de studenten of ga naar een squad pagina"/>
             </div>
-            <form>
-                <select name="sort" onchange={handleChange}>
-                    <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
-                    <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
-                </select>
-            </form>
+            <div class="filters vertical-layout">
+                <div class="class">
+                    <p class="vertical-layout">
+                        <span class="span-classes vertical-layout">
+                            <a href="/squad/2E">Ga naar squad 2E</a>
+                            <!-- of -->
+                            <a href="/squad/2F">Ga naar squad 2F</a>
+                        </span>
+                    </p>
+                </div>
+                <form>
+                    <select name="sort" onchange={handleChange}>
+                        <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
+                        <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
+                    </select>
+                </form>
+            </div>
         </div>
-
-        <div class="list-students">
+        <div 
+            class="list-students" 
+            style={`timeline-scope: ${triggers}`}>
+            <div class="scroll-triggers">
+                {#each members as member, i}
+                    <div class="trigger" style={`view-timeline: --trigger${i}`}>
+                        Trigger {i}
+                    </div>
+                {/each}
+            </div>
             <ul>
-                {#each members as member}
-                    <li>
+                {#each members as member, i}
+                <li
+                    style={`
+                        --z-index: ${members.length - i}; 
+                        --animation-timeline: --trigger${i}`}
+                >
                         <StudentCard {member} />
                     </li>
                 {/each}
@@ -112,10 +122,6 @@
         }
     }
 
-    h3 {
-        font-size: 16px;
-    }
-
     :global(h1, h2, p) {
         line-height: 180%;
     }
@@ -144,6 +150,22 @@
         max-width: 420px;
     }
 
+    @media (min-width: 1216px) {
+        .info {
+            @supports (animation-timeline: view()) {
+                position: sticky;
+                top: 10%;
+            }
+        }
+
+        .sort-and-links {
+            @supports (animation-timeline: view()) {
+                position: sticky;
+                top: 30%;
+            }    
+        }
+    }
+
     @media (min-width: 940px) {
         .info {
             flex-direction: row; 
@@ -154,10 +176,13 @@
         .title {
             gap: 0;
         }
-    }
 
-    .filters {
-        @media (min-width: 940px) {
+        .filters {
+            flex-direction: row; 
+            align-items: center;
+        }
+
+        .span-classes {
             flex-direction: row;
         }
     }
@@ -168,13 +193,10 @@
         font-size: 16px;
         font-weight: 300;
         cursor: pointer; 
-        margin: 0 1rem;
     }
 
     .filters a, select{
-        padding: 1rem;
-        width: min-content;
-        margin: 1rem;
+        width: fit-content;
         padding: 1rem;
         border: 1px solid var(--primary-text);
         border-radius: var(--b-radius-small);
@@ -190,16 +212,21 @@
         margin: 1.5em 0;
     }
 
-    .span-classes {
-        gap: 1rem;
-            a {
-                margin: 0 1rem; 
-                width: fit-content;
-        }
-    }
-
     .overview {
         gap: 2rem;
+    }
+
+    .list-students {
+        gap: 1rem;
+        position: relative;
+
+        @media (min-width: 1216px) {
+            @supports (animation-timeline: view()) {
+                @media (prefers-reduced-motion: no-preference) {
+                    height: 1000vh;
+                }
+            }
+        }
     }
 
     ul, li {
@@ -211,6 +238,61 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
         gap: 2rem;
-        justify-items: center
+        justify-items: center;
+
+        @media (min-width: 1216px) {
+            @supports (animation-timeline: view()) {
+                position: sticky;
+                top: 55%;
+                justify-items: start;
+            }
+        }
+    }
+
+    li {
+        @media (min-width: 1216px) {
+            position: absolute;
+            z-index: var(--z-index);
+            background-color: var(--secondary-color);
+
+            @supports (animation-timeline: view()) {
+                @media (prefers-reduced-motion: no-preference) {
+                    animation-timeline: var(--animation-timeline);
+                    animation-name: move-right;
+                    animation-range: entry 50vh exit;
+                    animation-fill-mode: both;
+                }
+            }
+        }
+    }
+
+    /* Scroll triggers */
+    .scroll-triggers {
+        position: absolute;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+    }
+
+    .scroll-triggers div {
+        width: 100%;
+        flex-grow: 1;
+        writing-mode: vertical-rl;
+        padding: 0.2em;
+        text-align: center;
+        min-height: 15vh;
+    }
+
+    /* Keyframes */
+    @keyframes move-right {
+        0% {
+            transform: translate(0%, 0%);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(300%, 00%);
+            opacity: 0;
+        }
     }
 </style>

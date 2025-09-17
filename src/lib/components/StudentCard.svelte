@@ -39,6 +39,7 @@
         ;
         padding: 1rem 2rem;
         width: 190px; 
+        background-color: var(--secondary-background);
     }
 
     article .name {
