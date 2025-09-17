@@ -23,6 +23,10 @@
     }
 </script>
 
+<svelte:head>
+  <title>Squadpage | {selectedClass}</title>
+</svelte:head>
+
 <!-- HTML -->
 <main class="vertical-layout">
   <!-- Introductie -->

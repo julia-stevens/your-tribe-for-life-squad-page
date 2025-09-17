@@ -6,6 +6,10 @@
     const member = data.member; 
 </script>
 
+<svelte:head>
+  <title>Squadpage | {member.name}</title>
+</svelte:head>
+
 <main>
     <section>
         <a class="back" href="/">Terug</a> 

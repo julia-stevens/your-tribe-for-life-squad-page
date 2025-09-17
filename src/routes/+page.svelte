@@ -19,6 +19,10 @@
     }
 </script>
 
+<svelte:head>
+  <title>Squadpage</title>
+</svelte:head>
+
 <!-- HTML -->
 <main class="vertical-layout">
     <!-- Introductie -->
