@@ -95,7 +95,7 @@
         /* Padding */
         --padding-small: 1rem .5rem; 
         --padding-medium: 1rem 2rem; 
-        --padding-large: 3rem 2rem;
+        --padding-large: 7rem 10rem;
 
         background-color: var(--secondary-color);
         border-radius: var(--b-radius-large);
@@ -105,8 +105,16 @@
         font-size: 16px;
         color: var(--primary-text);
 
-        max-width: 1000px;
+        /* max-width: 1000px; */
         margin: 0 auto;
+    }
+
+    main {
+        padding: 5em 2em;
+
+        @media screen and (min-width: 800px) {
+            padding: var(--padding-large);
+        }
     }
 
     /* Reset */
