@@ -23,7 +23,7 @@
 </svelte:head>
 
 <header> 
-	    <a href="/"><img class="header-logo-hva" src="../hva-blank.svg" alt="naar de homepagina" height="50"></a>
+	    <a class="header-logo-hva" href="/"><img src="../hva-blank.svg" alt="naar de homepagina" height="50"></a>
 	    <a href="/"><img class="header-logo" src="../fdnd.png" alt="FDND" width="100" height="50" style="object-fit: contain;"></a>
 	    <a href="https://programma.fdnd.nl/" class="home">Bekijk programma</a>
 </header>
@@ -126,7 +126,7 @@ header {
         background-color: var(--primary-color);
         color: var(--primary-text);
         border-radius: var(--section-radius) var(--section-radius) 0 0;
-        padding: 3em 1em 1em 1em;
+        padding: 3em 0 1em 0em;
 
         /* Flex */
         display: flex; 
@@ -134,6 +134,14 @@ header {
         justify-content: space-between;
         gap: 2rem;
         flex-direction: column;
+        margin: auto;
+
+        width: 93%;
+
+        @media screen and (min-width: 800px) {
+            width: 75%;
+            margin: auto;
+        }
 
         p {
             text-align: center;
