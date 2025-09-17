@@ -22,7 +22,8 @@
             { 
                 y: 0, // zin gaat naar 0px (wordt dus weer zichtbaar)
                 stagger: 0.4 / chars.length, // berekening om de animatie lengte zinnen
-                duration: 0.5 // animatie duurt 0.5s
+                duration: 0.5, // animatie duurt 0.5s
+                delay: .5,
             }
         );
     });
