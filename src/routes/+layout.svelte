@@ -153,36 +153,40 @@ header {
     }
 
     @view-transition {
-        navigation: auto; 
+        navigation: auto;
     }
-    
-    /* Oude pagina schuift omhoog */
-    @keyframes slide-old-up-stack {
+
+    /* Oude pagina vervaagt en krimpt licht */
+    @keyframes fade-shrink-old {
         from {
-            transform: translateY(0);
+            opacity: 1;
+            transform: scale(1);
         }
         to {
-            transform: translateY(-100%);
+            opacity: 0;
+            transform: scale(0.95);
         }
     }
 
-    /* Nieuwe pagina schuift omhoog samen met de oude pagina */
-    @keyframes slide-new-up-stack {
+    /* Nieuwe pagina vervaagt en groeit licht */
+    @keyframes fade-grow-new {
         from {
-            transform: translateY(100%);
+            opacity: 0;
+            transform: scale(1.05);
         }
         to {
-            transform: translateY(0);
+            opacity: 1;
+            transform: scale(1);
         }
     }
 
     /* Animatie toepassen */
     :root::view-transition-old(root) {
-        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-old-up-stack;
-        
+        animation: 500ms ease-in-out both fade-shrink-old;
     }
 
     :root::view-transition-new(root) {
-        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-new-up-stack;
+        animation: 500ms ease-in-out both fade-grow-new;
     }
+
 </style>
