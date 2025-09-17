@@ -26,7 +26,7 @@
 ### Visuals 
 - Afbeeldingen/schermopname 
 
-# FDND conventies
+## FDND conventies
 [zie FDND website](https://docs.fdnd.nl/conventies.html)
 
 ## Code conventies
