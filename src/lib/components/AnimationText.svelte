@@ -43,6 +43,11 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 
+  .char {
+    display: inline-block;
+    will-change: transform;
+  }
+
  h1 {
         font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
         margin: 0;
