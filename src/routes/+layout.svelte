@@ -40,72 +40,74 @@
 </footer>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0; 
-    padding: 0; 
-}
-
-*:focus {
-            outline: 3px dashed var(--primary-color);
-            outline-offset: 4px;
-}
-
-:global(body) {
-    --primary-color: #A675F4;
-    --secondary-color:  #ececec;
-	--primary-highlight: #66e5bf;
-    --primary-text: #050542;
-	--secondary-text: #01A581;
-    --section-radius: .5rem;
-    --section-padding: .5em 1em;
-
-    font-family: "Open Sans", serif;
-    font-size: 16px; 
-	background-color: var(--primary-color);
-    padding: 1em;
-    margin: 0;
-}
-
-.skip-link {
-    text-decoration: none;
-    color: inherit;
-    background-color: var(--primary-highlight);
-    border: 1px solid var(--primary-text);
-    padding: .5em 1em;
-    border-radius: 5px;
-    transition: .3s ease-in;
-    position: absolute;
-    top: 3rem;
-    left: -10rem;
-}
-
-.skip-link:focus-visible {
-    left: 5rem;   
-    z-index: 9999; 
-}
-
-header {
-    background-color: var(--primary-color);
-    color: var(--primary-text);
-    border-radius: 0 0 var(--section-radius) var(--section-radius);
-    padding: var(--section-padding);
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%); 
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    gap: 2rem;
-    width: 93%;
-
-    @media screen and (min-width: 800px) {
-        width: 75%;
-        margin: auto;
+    * {
+        box-sizing: border-box;
+        margin: 0; 
+        padding: 0; 
     }
-}
+
+    *:focus {
+        outline: 3px dashed var(--primary-color);
+        outline-offset: 4px;
+    }
+
+    :global(body) {
+        --primary-color: #A675F4;
+        --secondary-color:  #ececec;
+        --primary-highlight: #66e5bf;
+        --primary-text: #050542;
+        --secondary-text: #01A581;
+        --section-radius: .5rem;
+        --section-padding: .5em 1em;
+
+        font-family: "Open Sans", serif;
+        font-size: 16px; 
+        background-color: var(--primary-color);
+        padding: 1em;
+        margin: 0;
+    }
+
+    /* Skiplink */
+    .skip-link {
+        text-decoration: none;
+        color: inherit;
+        background-color: var(--primary-highlight);
+        border: 1px solid var(--primary-text);
+        padding: .5em 1em;
+        border-radius: 5px;
+        transition: .3s ease-in;
+        position: absolute;
+        top: 3rem;
+        left: -10rem;
+    }
+
+    .skip-link:focus-visible {
+        left: 5rem;   
+        z-index: 9999; 
+    }
+
+    /* Header */
+    header {
+        background-color: var(--primary-color);
+        color: var(--primary-text);
+        border-radius: 0 0 var(--section-radius) var(--section-radius);
+        padding: var(--section-padding);
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%); 
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+        gap: 2rem;
+        width: 93%;
+
+        @media screen and (min-width: 800px) {
+            width: 75%;
+            margin: auto;
+        }
+    }
 
     .header-logo {
         width: 5em;
@@ -119,7 +121,7 @@ header {
         }
     }
 
-     .home {
+    .home {
         text-decoration: none;
         background-color: var(--primary-text);
         color: var(--secondary-color);
@@ -148,6 +150,7 @@ header {
         }
     }
 
+    /* Footer */
     footer {
         background-color: var(--primary-color);
         color: var(--primary-text);
@@ -178,37 +181,46 @@ header {
         }
     }
 
+    /* Multi page view transition */
     @view-transition {
-        navigation: auto; 
-    }
-    
-    /* Oude pagina schuift omhoog */
-    @keyframes slide-old-up-stack {
-        from {
-            transform: translateY(0);
-        }
-        to {
-            transform: translateY(-100%);
-        }
+        navigation: auto;
     }
 
-    /* Nieuwe pagina schuift omhoog samen met de oude pagina */
-    @keyframes slide-new-up-stack {
-        from {
-            transform: translateY(100%);
-        }
-        to {
-            transform: translateY(0);
-        }
-    }
 
-    /* Animatie toepassen */
-    :root::view-transition-old(root) {
-        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-old-up-stack;
-        
-    }
+    /* Animation alleen voor gebruikers die animaties willen */
+    @media (prefers-reduced-motion: no-preference) {
+        /* Animatie oude pagina */
+        @keyframes fade-old {
+            from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+        }
 
-    :root::view-transition-new(root) {
-        animation: 700ms cubic-bezier(0.4, 0, 0.2, 1) both slide-new-up-stack;
+        /* Animatie nieuwe pagina */
+        @keyframes fade-new {
+            from {
+                opacity: 0;
+                transform: scale(1.08) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Animatie gebeurd wanneer de root veranderd */
+        :root::view-transition-old(root) {
+            animation: 500ms ease-in-out both fade-old;
+        }
+
+        /* Animatie gebeurd wanneer de root veranderd */
+        :root::view-transition-new(root) {
+            animation: 500ms ease-in-out both fade-new;
+        }
     }
 </style>
