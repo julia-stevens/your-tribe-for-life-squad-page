@@ -1,7 +1,12 @@
 # Squadpage Sprint 13
 
-- Hier komt de introductie/inleiding. (Wie hebben er aan gewerkt en wat hebben we gemaakt)
-- Mockup van onze squadpage
+
+Tijdens Sprint 13 hebben wij aan onze squadpage gewerkt. Wij wilde een squadpage maken die niet alleen werkend was, maar ook responsive en toegankelijk was, en gebouwd in SvelteKit.
+Onze doelen voor deze sprint waren meestal vergelijkbaar, we wilde allemaal leren hoe het is om met een framework te werken, en om onze werkwijze met PR en issues te verbeteren. Als eerst hebben we onze taken verdeeld met iedereen zijn eigen pagina. Julia heeft de overzichtspagina gemaakt, terwijl Stella op het layout en Amber op de detailpagina hebben gewerkt. Door goede taakverdeling hebben we een volledige, overzichtelijke squadpage inclusief data vanuit de API, animaties en hover states kunnen maken.
+
+<img width="1293" height="834" alt="Screenshot 2025-09-18 174129" src="https://github.com/user-attachments/assets/1b31434e-1c7b-4216-9d6a-ae5c785275c1" />
+
+
 
 ## Inhoudsopgave
 
