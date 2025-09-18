@@ -26,10 +26,29 @@
 4 Pleasurable
   
 ### Text animation
-- Beschrijving feature
-- 1 & 2 Functional & Reliable
-- 3 Usable
-4 Pleasurable
+
+De tekst animatie is een pleaserable toevoeging. Het doel van de tekst animatie is de gebruiker een prettigere ervaring te geven op onze squadpage pagina.
+
+#### Functional & reliable
+- Semantische HTML structuur behouden door in het element de juiste element mee te geven `tag={"h1"}`.
+- Core functionaliteit (tekst blijft leesbaar) blijft behouden in oude browsers.
+
+https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/b69312c93dc5db1f6c77d453a3b60d5f3aef0ee5/src/routes/%2Bpage.svelte#L33-L34
+
+#### Usable
+- Geïmplementeerd als herbruikbaar component. Je kunt in het component het tekst element meegeven. Hierdoor blijft het component dynamisch werken.
+
+https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/b69312c93dc5db1f6c77d453a3b60d5f3aef0ee5/src/lib/components/AnimationText.svelte#L33-L35
+
+#### Pleaserable
+- Tekst geanimeerd met GSAP. Hiervoor wordt er met GSAP ervoor gezorgd dat de tekst animeert.
+- De animaties bevatten een `delay` waardoor de gebruiker bij het laden de animatie duidelijk te zien krijgt.
+
+https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/b69312c93dc5db1f6c77d453a3b60d5f3aef0ee5/src/lib/components/AnimationText.svelte#L10-L28
+
+#### Visual
+
+https://github.com/user-attachments/assets/a5308cc7-7359-481e-a315-c917921f2240
   
 ### Multi page view transitions
 - Beschrijving feature
