@@ -139,6 +139,7 @@
     a {
         color: inherit;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .vertical-layout {

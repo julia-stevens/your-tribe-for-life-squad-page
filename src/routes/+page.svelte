@@ -149,6 +149,7 @@
     a {
         color: inherit;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .vertical-layout {
@@ -273,6 +274,7 @@
             @supports (animation-timeline: view()) {
                 position: sticky;
                 top: 30%;
+                z-index: 99999999;
             }    
         }
 
