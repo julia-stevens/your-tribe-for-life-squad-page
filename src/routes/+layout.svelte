@@ -1,5 +1,5 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/fav-icon-fdnd.svg';
 	import Title from '$lib/+title.svelte';
     
 	let { children } = $props();
