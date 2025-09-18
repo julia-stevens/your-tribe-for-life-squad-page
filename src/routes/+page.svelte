@@ -51,15 +51,13 @@
                         </span>
                     </p>
                 </div>
-                <label>
-                    <span>Sorteer</span>
-                    <form>
-                        <select name="sort" onchange={handleChange}>
-                            <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
-                            <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
-                        </select>
-                    </form>
-                </label>
+                <label for="sort"><span>Sorteer</span></label>
+                <form id="sort">
+                    <select name="sort" onchange={handleChange}>
+                        <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
+                        <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
+                    </select>
+                </form>
             </div>
         </div>
         <div 

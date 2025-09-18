@@ -58,10 +58,11 @@
                     </span>
                 </p>
             </div>
-            <form>
+            <label for="sort"><span>Sorteer</span></label>
+            <form id="sort">
                 <select name="sort" onchange={handleChange}>
-                    <option value="name" selected={sort === "name"}>Naam</option>
-                    <option value="age" selected={sort === "age"}>Leeftijd</option>
+                    <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
+                    <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
                 </select>
             </form>
         </div>
@@ -170,6 +171,12 @@
         @media (min-width: 940px) {
             flex-direction: row;
         }
+    }
+    
+    label > span {
+        position: absolute; 
+        left: -999999px;
+        opacity: 0;
     }
 
     select {
