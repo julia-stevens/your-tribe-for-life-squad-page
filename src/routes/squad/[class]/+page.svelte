@@ -26,7 +26,7 @@
 </script>
 
 <!-- HTML -->
-<main class="vertical-layout">
+<main class="vertical-layout" id="main">
     <!-- Introductie -->
     <section class="info vertical-layout">
         <div class="title vertical-layout">
@@ -60,7 +60,7 @@
             </div>
             <label for="sort"><span>Sorteer</span></label>
             <form id="sort">
-                <select name="sort" onchange={handleChange}>
+                <select id="sort" name="sort" onchange={handleChange}>
                     <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
                     <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
                 </select>
@@ -85,7 +85,7 @@
         padding: 0; 
     }
 
-    *:focus {
+    *:focus-visible {
             outline: 3px dashed var(--primary-color);
             outline-offset: 4px;
     }
@@ -126,10 +126,6 @@
     /* Reset */
     h1 {
         font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
-    }
-
-    .sub-title {
-        font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
 
     h1, p {
