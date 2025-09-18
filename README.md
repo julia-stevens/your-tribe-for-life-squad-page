@@ -51,7 +51,11 @@ Het overzicht van de studenten en docenten van leerjaar 2 kan gesorteerd worden 
 
 #### Visual
 
-https://github.com/user-attachments/assets/d28360a0-7835-4139-a7d4-115f70405f58
+
+https://github.com/user-attachments/assets/6f12d38d-d6b3-4760-a609-1384625ee650
+
+
+
 
 ### Text animation
 
