@@ -34,13 +34,9 @@
   });
 </script>
 
-<!-- <span class="bounce-text">{text}</span> -->
-
 <svelte:element class="bounce-text" this={tag}>
 	{text}
 </svelte:element>
-
-<!-- <h1>{text}</h1> -->
 
 <style>
   .bounce-text {
