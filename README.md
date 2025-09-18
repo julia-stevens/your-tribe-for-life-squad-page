@@ -90,56 +90,65 @@ https://github.com/user-attachments/assets/a5308cc7-7359-481e-a315-c917921f2240
 - Visua
 
 ## Kenmerken
+In dit project gebruiken wij SvelteKit om een dynamische squadpage te bouwen met herbruikbare componenten en routes. Data wordt opgehaald via de Directus API. 
 
-### Routes en data
+### Routes
+- [`/`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/routes/%2Bpage.svelte): Op de home pagina wordt de de data van alle tweedejaars studenten en docenten opgehaald en gerenderd naar een overzicht.
+- [`/[id]`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/routes/%5Bid%5D/%2Bpage.svelte): In deze route wordt de data van de specifieke student opgehaald en gerenderd naar een detail pagina van de student/docent. 
+- [`/squad/[squad]`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/routes/squad/%5Bclass%5D/%2Bpage.svelte): In deze route wordt de data van de specifieke squad opgehaald en gerenderd naar de squad pagina.
 
-- Welke routes en pagina's we hebben in onze squadpage.
+### Componenten 
+- [`StudentCard`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/lib/components/StudentCard.svelte): In dit component staat de student card die op alle pagina's gebruikt wordt.
+- [`AnimationSection`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/lib/components/AnimationSection.svelte): Dit component animeert de sectie die wordt meegegeven met GSAP. 
+- [`AnimationText`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/lib/components/AnimationText.svelte): Dit component animeert de tekst die wordt meegegeven met GSAP.
+- [`OverviewTitle`](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/lib/components/OverviewTitle.svelte): Dit component bevat titel en ondertitel informatie die op meerdere pagina's gebruikt wordt.
+
+### Data
+Data wordt opgehaald in `+page.server.js` per betreffende route. Hierin wordt een fetch gedaan naar de Directus API, wordt de data verwerkt en gerenderd naar de betreffende `+page.svelte` pagina. 
+- Zie bijvoorbeeld de [`+page.server.js` van de home pagina](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/routes/%2Bpage.server.js). Op basis van de sorteer waarde in de URL wordt een fetch naar Directus uitgevoerd en data op een bepaalde volgorde opgehaald. 
 
 ### Gebruikte tools
 
 - Alle tools die we gebruikt hebben zoals SvelteKit & Directus API en hoe we die ingezet hebben binnen ons project.
 
 ## Installatie
+Om dit project te bouwen moeten onderstaande stappen uitgevoerd worden. `Node.js` en `npm` (of alternatieven, zoals `pnpm` of `yarn`) zijn een vereiste package manager om te kunnen beginnen.  
 
-- Hoe project installeren en gebruiken (dit onderstaande stond al in de ReadME misschien kunnen we hier bepaalde punten uithalen).
+### Project aanmaken 
+- Als je een nieuwe SvelteKit project wil starten, voer volgende commando's uit in de terminal:
 
-### sv
-
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-### Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
 ```
-### Developing
+npx sv create
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Volg vervolgens de stappen die in de terminal verschijnen.
 
-```sh
-npm run dev
+### Installeren 
+- Nadat het project is uitgevoerd, voer onderstaand command uit om alle dependencies te installeren
 
-# or start the server and open the app in a new browser tab
+```
+npm install
+```
+
+### Ontwikkelen
+-  Als alle dependencies zijn geïnstalleerd, kan de ontwikkelserver gestart worden. Doe dit met onderstaand commando, en krijg automatisch veranderingen te zien:
+
+```
 npm run dev -- --open
 ```
 
-### Building
+### Builden 
+- Op een productversie van je app te maken:
 
-To create a production version of your app:
-
-```sh
+```
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+- En op de productieversie te bekijken:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```
+npm run preview
+```
 
 ## Bronnen
 - [Ontwerp Squadpage in Figma](https://www.figma.com/design/OKW6E3n84IyLq76bXJBhB7/Sprint-13?node-id=16-2&t=s6vBqLf3tv9Oeb9o-1)
