@@ -15,12 +15,59 @@
         </a>
     </div>
     <div class="avatar">
-        <img 
-            src={member.avatar || defaultImg}
-            alt="Avatar van {member.name}" 
-            width="50" 
-            height="50" 
-        >
+        <picture>
+            {#if member.avatar}
+                <!-- avif -->
+                <source 
+                    srcset="
+                        {member.avatar}?format=avif&width=50 50w,
+                        {member.avatar}?format=avif&width=100 100w,
+                        {member.avatar}?format=avif&width=200 200w
+                    "
+                    sizes="
+                        (max-width: 600px) 50px,
+                        (max-width: 1200px) 100px,
+                        200px
+                    "
+                    type="image/avif"
+                    />
+            
+                    <!-- Fallback naar webp -->
+                    <source 
+                    srcset="
+                        {member.avatar}?format=webp&width=50 50w,
+                        {member.avatar}?format=webp&width=100 100w,
+                        {member.avatar}?format=webp&width=200 200w
+                    "
+                    sizes="
+                        (max-width: 600px) 50px,
+                        (max-width: 1200px) 100px,
+                        200px
+                    "
+                    type="image/webp"
+                    />
+            
+                    <!-- Fallback naar png -->
+                    <img
+                    src="{member.avatar}?format=png&width=100"
+                    alt="Avatar van {member.name}"
+                    width="50"
+                    height="50"
+                    class="avatar-img"
+                    loading="lazy"
+                    />
+                {:else} 
+                    <!-- Default image -->
+                    <img
+                    src={defaultImg}
+                    alt="Default avatar"
+                    width="50"
+                    height="50"
+                    class="avatar-img"
+                    loading="lazy"
+                />
+            {/if}                
+            </picture>
     </div>
 </article>
 
