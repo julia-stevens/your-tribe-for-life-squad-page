@@ -89,6 +89,12 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
 
+## Bronnen
+- [Ontwerp Squadpage in Figma](https://www.figma.com/design/OKW6E3n84IyLq76bXJBhB7/Sprint-13?node-id=16-2&t=s6vBqLf3tv9Oeb9o-1)
+- [FDND.nl](https://fdnd.nl/) (Voor het huisstijl)
+- [Programma FDND](https://programma.fdnd.nl/) (Voor het huisstijl)
+- Huisstijl document van de HvA
+
 ## Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
