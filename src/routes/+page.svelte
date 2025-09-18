@@ -252,23 +252,23 @@
         grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
         gap: 2rem;
         justify-items: center;
+    }
 
-        @media (min-width: 1216px) {
+    @media (min-width: 1216px) {
+        ul {
             @supports (animation-timeline: view()) {
                 position: sticky;
                 top: 55%;
                 justify-items: start;
             }
         }
-    }
 
-    li {
-        @media (min-width: 1216px) {
-            position: absolute;
-            z-index: var(--z-index);
-            background-color: var(--secondary-color);
-
+        li {
             @supports (animation-timeline: view()) {
+                position: absolute;
+                z-index: var(--z-index);
+                background-color: var(--secondary-color);
+                
                 @media (prefers-reduced-motion: no-preference) {
                     animation-timeline: var(--animation-timeline);
                     animation-name: move-right;
