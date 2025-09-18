@@ -56,11 +56,7 @@ Het overzicht van de studenten en docenten van leerjaar 2 kan gesorteerd worden 
 
 #### Visual
 
-
 https://github.com/user-attachments/assets/6f12d38d-d6b3-4760-a609-1384625ee650
-
-
-
 
 ### Text animation
 
@@ -88,11 +84,23 @@ https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/b69312c93dc
 https://github.com/user-attachments/assets/a5308cc7-7359-481e-a315-c917921f2240
   
 ### Multi page view transitions
-- Beschrijving feature
-- 1 & 2 Functional & Reliable
-- 3 Usable
-- 4 Pleasurable
-- Visua
+
+De multi page view transition is een extra toevoeging om het gebruiken van de squadpage aangenamer te maken voor de gebruiker. Tussen het switchen van pagina's is er een animatie bezig om de perceived performance voor de gebruiker prettiger te maken.
+
+#### Functional & reliable
+- Controleert of `document.startViewTransition` beschikbaar is zodat de pagina's ook in oude browsers blijven werken.
+- Semantische HTML blijft behouden
+
+#### Usable
+- De multi page view transition is in de `+layout.svelte` geïmplementeerd, hierdoor is de transition herbruikbaar.
+
+#### Pleaserable
+- De oude pagina vervaagt (fade-old), de nieuwe pagina komt subtiel binnen met een kleine zoom (fade-new). Dit zorgt voor een prettige en vloeiende overgang.
+- Animatie wordt niet uitgevoerd bij prefered reduced motion `prefers-reduced-motion`.
+
+#### Visual
+
+https://github.com/user-attachments/assets/2464e492-d420-43ab-b858-9f8884037ac0
 
 ## Kenmerken
 In dit project gebruiken wij SvelteKit om een dynamische squadpage te bouwen met herbruikbare componenten en routes. Data wordt opgehaald via de Directus API. 
