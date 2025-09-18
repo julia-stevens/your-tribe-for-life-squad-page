@@ -22,7 +22,7 @@
 </script>
 
 <!-- HTML -->
-<main class="vertical-layout">
+<main class="vertical-layout" id="main">
     <!-- Introductie -->
     <section class="info vertical-layout">
         <div class="title vertical-layout">
@@ -90,6 +90,11 @@
         box-sizing: border-box;
         margin: 0; 
         padding: 0; 
+    }
+
+    *:focus-visible {
+            outline: 3px dashed var(--primary-color);
+            outline-offset: 4px;
     }
 
     main {

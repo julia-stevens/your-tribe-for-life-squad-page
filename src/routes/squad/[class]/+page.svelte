@@ -85,6 +85,11 @@
         padding: 0; 
     }
 
+    *:focus {
+            outline: 3px dashed var(--primary-color);
+            outline-offset: 4px;
+    }
+
     main {
         /* Border radius */
         --b-radius-small: 5px; 
@@ -172,7 +177,7 @@
             flex-direction: row;
         }
     }
-    
+
     label > span {
         position: absolute; 
         left: -999999px;
