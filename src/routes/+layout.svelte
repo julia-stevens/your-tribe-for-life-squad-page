@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={favicon}>
     <title>Squadpage Jaar 2</title>
 </svelte:head>
 
