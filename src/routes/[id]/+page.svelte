@@ -16,7 +16,7 @@
         <a class="back" href="/">Terug</a> 
         <p class="breadcrumb-mobile"><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
         <AnimationText tag={"h1"} text={member.name}/>
-        <AnimationText className="year" tag={"p"} text="FDND jaar 2025/2026"/>
+        <AnimationText className="year" tag={"h2"} text="FDND jaar 2025/2026"/>
         <AnimationText tag={"p"} text="Squad: {member.squads[1].squad_id.name}"/>
         <AnimationText tag={"p"} text={member.bio}/>
     </section>
@@ -129,6 +129,11 @@
         @media screen and (min-width: 800px) {
             font-size: 45px;
         }
+    }
+
+    :global(h2) {
+
+        font-weight: 300;
     }
 
     .wrapper-detail p {
