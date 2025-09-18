@@ -26,10 +26,10 @@
 ### Visuals 
 - Afbeeldingen/schermopname 
 
-# FDND conventies
+## FDND conventies
 [zie FDND website](https://docs.fdnd.nl/conventies.html)
 
-# Code conventies
+## Code conventies
 ### HTML / Liquid
 - Gebruik semantische HTML: `<section>`, `<article>`, `<main>`
 - kebab-case voor classnamen: `section-title`
@@ -52,4 +52,41 @@
 - Begin alle animatie classes met 'animation'
 - Het tweede deel van de classname hoort bij hoe de animatie zichtbaar/onzichtbaar wordt, e.g fade-in
 - Het derde deel van de classname hoort bij de richting van de animatie + wordt onderscheiden door een --, e.g --up of --down
-- 
+
+## Oplever todo's:
+
+Wat moet er in de oplevering zitten?
+
+- [`README.md`](#readme)
+- [Alles moet getest zijn](#testen)
+- [Projectboard](#projectboard)
+- Live staan + live link
+- Geen open pull requests
+
+### Projectboard
+- Moscow is toegepast
+- Issues in juiste fase
+- Issues sluiten
+- Backlog met issues die niet opgepakt worden
+
+### Refactor
+- Structuur van je mappen
+- Netjes uitlijnen van code
+- Ongebruikte code is verwijderd
+- Ongebruikte files zijn verwijderd
+- Comments in code
+- Comments met bronnen
+- Conventies uit `CONTRIBUTING.md` zijn gehandhaafd
+
+### README
+- Informatie voor installatie
+- Omschrijving van het project
+- Ontwerpkeuzes uitleggen
+- Functionaliteiten uitleg
+
+### Testen
+- Performance
+- A11y, tab, kleur, screenreader
+- User test
+- Responsive + Device test
+- Html validator
