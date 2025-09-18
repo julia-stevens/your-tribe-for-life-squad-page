@@ -6,10 +6,14 @@
   export let tag = 'h1';
   export let text = "";
 
-   // onMount voerd de onderstaande code pas uit als een element in de browser zichtbaar is
+  // onMount voerd de onderstaande code pas uit als een element in de browser zichtbaar is
   onMount(() => {
+    gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
         // Eerst de tekst splitsen in letters
-        const bounceText = new SplitText(".bounce-text", { type: "chars,words" });
+        const bounceText = new SplitText(".bounce-text", { 
+          type: "chars,words",
+          aria: "hidden"
+        });
 
         // Array met alle losse letters
         const chars = bounceText.chars;
@@ -27,6 +31,7 @@
             }
         );
     });
+  });
 </script>
 
 <!-- <span class="bounce-text">{text}</span> -->
