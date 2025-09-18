@@ -16,8 +16,8 @@
     function handleChange(event) {
         const value = event.target.value;
         const url = new URL($page.url);
-        url.searchParams.set("sort", value);
-        goto(url.toString());
+        url.searchParams.set("sort", value); // update sort met value uit het formulier
+        goto(url.toString()); // ga naar nieuwe url
     }
 </script>
 
@@ -118,16 +118,18 @@
         color: var(--primary-text);
         
         margin: 0 auto;
-    }
-
-    main {
         padding: 5em 2em;
 
-        @media screen and (min-width: 800px) {
+    }
+
+    @media (min-width: 800px) {
+        main {
             padding: var(--padding-large);
+
         }
     }
 
+    /* Reset */
     :global(h1, h2, p) {
         line-height: 180%;
     }
@@ -156,44 +158,6 @@
         max-width: 420px;
     }
 
-    @media (min-width: 1216px) {
-        .info {
-            @supports (animation-timeline: view()) {
-                position: sticky;
-                top: 10%;
-            }
-        }
-
-        .sort-and-links {
-            @supports (animation-timeline: view()) {
-                position: sticky;
-                top: 30%;
-            }    
-        }
-    }
-
-    @media (min-width: 940px) {
-        .info {
-            flex-direction: row; 
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .title {
-            gap: 0;
-        }
-
-        .filters {
-            flex-direction: row; 
-            align-items: center;
-        }
-
-        .span-classes {
-            flex-direction: row;
-        }
-
-    }
-
     label > span {
         position: absolute; 
         left: -999999px;
@@ -217,8 +181,7 @@
             /* box shadow color */
             -5px 5px 1px var(--secondary-color),
             /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
-        ; 
+            -5px 5px 0 1px var(--primary-text); 
     }
 
     .filters p {
@@ -254,7 +217,61 @@
         justify-items: center;
     }
 
+    /* Scroll triggers */
+    .scroll-triggers {
+        position: absolute;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+    }
+
+    .scroll-triggers div {
+        width: 100%;
+        flex-grow: 1;
+        writing-mode: vertical-rl;
+        padding: 0.2em;
+        text-align: center;
+        min-height: 15vh;
+    }
+
+    /* Media queries */
+    @media (min-width: 940px) {
+        .info {
+            flex-direction: row; 
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            gap: 0;
+        }
+
+        .filters {
+            flex-direction: row; 
+            align-items: center;
+        }
+
+        .span-classes {
+            flex-direction: row;
+        }
+    }
+
     @media (min-width: 1216px) {
+        .info {
+            @supports (animation-timeline: view()) {
+                position: sticky;
+                top: 10%;
+            }
+        }
+
+        .sort-and-links {
+            @supports (animation-timeline: view()) {
+                position: sticky;
+                top: 30%;
+            }    
+        }
+
         ul {
             @supports (animation-timeline: view()) {
                 position: sticky;
@@ -277,24 +294,6 @@
                 }
             }
         }
-    }
-
-    /* Scroll triggers */
-    .scroll-triggers {
-        position: absolute;
-        top: 0%;
-        display: flex;
-        flex-direction: column;
-        opacity: 0;
-    }
-
-    .scroll-triggers div {
-        width: 100%;
-        flex-grow: 1;
-        writing-mode: vertical-rl;
-        padding: 0.2em;
-        text-align: center;
-        min-height: 15vh;
     }
 
     /* Keyframes */
