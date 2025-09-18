@@ -1,4 +1,3 @@
-<!-- Data inladen -->
 <script>
     let { data } = $props(); // rune die data doorgeeft tussen page.server.js en page.svelte ("magische property")
 
@@ -26,7 +25,7 @@
 </script>
 
 <!-- HTML -->
-<main class="vertical-layout">
+<main class="vertical-layout" id="main">
     <!-- Introductie -->
     <section class="info vertical-layout">
         <div class="title vertical-layout">
@@ -43,25 +42,23 @@
     <!-- Overzicht met filters en lijst studenten -->
     <section class="overview vertical-layout">
         <OverviewTitle {selectedClass}/>
-        <!-- <div class="title">
-            <h2>Overzicht studenten {selectedClass}</h2>
-            <p>Sorteer de studenten of ga naar een squad pagina</p>
-        </div> -->
         <div class="filters vertical-layout">
             <div class="class">
                 <p class="vertical-layout">
                     <span class="span-classes vertical-layout">
                         <a href="/" class="to-home">Terug naar home</a>
+                        <!-- als selectedClass 2E is, dan active-link class, anders leeg -->
                         <a href="/squad/2E" class={selectedClass === "2E" ? "active-link" : ""}>Ga naar squad 2E</a>
                         <!-- of -->
                         <a href="/squad/2F" class={selectedClass === "2F" ? "active-link" : ""}>Ga naar squad 2F</a>
                     </span>
                 </p>
             </div>
-            <form>
-                <select name="sort" onchange={handleChange}>
-                    <option value="name" selected={sort === "name"}>Naam</option>
-                    <option value="age" selected={sort === "age"}>Leeftijd</option>
+            <label for="sort"><span>Sorteer</span></label>
+            <form id="sort">
+                <select id="sort" name="sort" onchange={handleChange}>
+                    <option value="name" selected={sort === "name"}>Sorteer A-Z</option>
+                    <option value="age" selected={sort === "age"}>Sorteer op leeftijd</option>
                 </select>
             </form>
         </div>
@@ -82,6 +79,11 @@
         box-sizing: border-box;
         margin: 0; 
         padding: 0; 
+    }
+
+    *:focus-visible {
+            outline: 3px dashed var(--primary-color);
+            outline-offset: 4px;
     }
 
     main {
@@ -105,25 +107,21 @@
         font-size: 16px;
         color: var(--primary-text);
 
-        /* max-width: 1000px; */
         margin: 0 auto;
+        padding: 5em 2em;
     }
 
-    main {
-        padding: 5em 2em;
 
-        @media screen and (min-width: 800px) {
+    @media (min-width: 800px) {
+        main {
             padding: var(--padding-large);
         }
     }
 
+
     /* Reset */
     h1 {
         font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
-    }
-
-    .sub-title {
-        font-size: clamp(1rem, 0.995rem + 1.009vw, 1.5625rem);
     }
 
     h1, p {
@@ -161,15 +159,17 @@
             align-items: center;
         }
 
-        /* .title {
-            gap: 0;
-        } */
+        .filters {
+            flex-direction: row; 
+        }
+
+
     }
 
-    .filters {
-        @media (min-width: 940px) {
-            flex-direction: row;
-        }
+    label > span {
+        position: absolute; 
+        left: -999999px;
+        opacity: 0;
     }
 
     select {
@@ -236,5 +236,4 @@
         grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
         gap: 2rem;
     }
-
 </style>
