@@ -60,7 +60,7 @@
                         width="50"
                         height="50"
                         class="avatar-img"
-                        loading="lazy"
+                        fetchpriority="high"
                     />
                 {/if}                
             </picture>

@@ -6,10 +6,14 @@
   export let tag = 'h1';
   export let text = "";
 
-   // onMount voerd de onderstaande code pas uit als een element in de browser zichtbaar is
+  // onMount voerd de onderstaande code pas uit als een element in de browser zichtbaar is
   onMount(() => {
+    gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
         // Eerst de tekst splitsen in letters
-        const bounceText = new SplitText(".bounce-text", { type: "chars,words" });
+        const bounceText = new SplitText(".bounce-text", { 
+          type: "chars,words",
+          aria: "hidden"
+        });
 
         // Array met alle losse letters
         const chars = bounceText.chars;
@@ -22,19 +26,17 @@
             { 
                 y: 0, // zin gaat naar 0px (wordt dus weer zichtbaar)
                 stagger: 0.4 / chars.length, // berekening om de animatie lengte zinnen
-                duration: 0.5 // animatie duurt 0.5s
+                duration: 0.5, // animatie duurt 0.5s
+                delay: .5,
             }
         );
     });
+  });
 </script>
-
-<!-- <span class="bounce-text">{text}</span> -->
 
 <svelte:element class="bounce-text" this={tag}>
 	{text}
 </svelte:element>
-
-<!-- <h1>{text}</h1> -->
 
 <style>
   .bounce-text {
@@ -42,6 +44,10 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 
+  .char {
+    display: inline-block;
+    will-change: transform;
+  }
   h1 {
         font-size: clamp(2rem, 1.4252rem + 2.4664vw, 3rem);
         margin: 0;

@@ -7,12 +7,16 @@
     const member = data.member; 
 </script>
 
-<main>
+<svelte:head>
+  <title>Squadpage | {member.name}</title>
+</svelte:head>
+
+<main id="main">
     <section>
         <a class="back" href="/">Terug</a> 
         <p class="breadcrumb-mobile"><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
         <AnimationText tag={"h1"} text={member.name}/>
-        <AnimationText className="year" tag={"p"} text="FDND jaar 2025/2026"/>
+        <AnimationText className="year" tag={"h2"} text="FDND jaar 2025/2026"/>
         <AnimationText tag={"p"} text="Squad: {member.squads[1].squad_id.name}"/>
         <AnimationText tag={"p"} text={member.bio}/>
     </section>
@@ -20,10 +24,6 @@
     <div class="wrapper-detail">
         <p><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
         <StudentCard {member} />
-        <!-- <figure>
-            <img  src={member.avatar || '/no-userprofile.jpg'}  alt="Avatar van {member.name}" height="100" width="100">
-            <figcaption>{member.name}</figcaption>
-        </figure> -->
     </div>
 </main>
 
@@ -118,13 +118,17 @@
         margin: -.8em 0 0 0;
     }
 
-
     h1 {
         font-size: 35px;
 
         @media screen and (min-width: 800px) {
             font-size: 45px;
         }
+    }
+
+    :global(h2) {
+
+        font-weight: 300;
     }
 
     .wrapper-detail p {
@@ -139,54 +143,4 @@
     .wrapper-detail p a{
         text-decoration: none;
     }
-
-    /* figure {
-        width: 100%;
-        max-width: 20em;
-        padding: 3em 2.5em 1.5em;
-        border: 1px solid #050542;
-        background-color: #D9D9D9;
-        border-radius: .7em;
-        position: relative;
-        z-index: 1;
-        box-shadow:  
-            -5px 5px 1px var(--primary-highlight), 
-            -5px 5px 0 1px var(--primary-text) 
-         ; 
-
-        @media screen and (min-width: 800px) {
-            width: 25em;
-            max-width: 15em;
-        }
-
-        @media screen and (min-width: 1000px) {
-            width: 25em;
-            min-width: 20em;
-            max-width: 15em;
-        }
-    } */
-
-    /* figcaption {
-        font-size: 18px;
-        font-weight: bold;
-        padding: 1em 0 0 0;
-    }
-
-    img {
-        width: 100%;
-        height: 15em;
-        object-fit: cover;
-        border-radius: 0.4em;
-
-        @media screen and (min-width: 800px) {
-            height: 15.5em;
-            width: 100%;
-        }
-
-        @media screen and (min-width: 1-00px) {
-            height: 18.5em;
-            width: 100%;
-        }
-    } */
-
 </style>
