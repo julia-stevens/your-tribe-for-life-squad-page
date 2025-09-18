@@ -120,10 +120,6 @@ In dit project gebruiken wij SvelteKit om een dynamische squadpage te bouwen met
 Data wordt opgehaald in `+page.server.js` per betreffende route. Hierin wordt een fetch gedaan naar de Directus API, wordt de data verwerkt en gerenderd naar de betreffende `+page.svelte` pagina. 
 - Zie bijvoorbeeld de [`+page.server.js` van de home pagina](https://github.com/julia-stevens/your-tribe-for-life-squad-page/blob/main/src/routes/%2Bpage.server.js). Op basis van de sorteer waarde in de URL wordt een fetch naar Directus uitgevoerd en data op een bepaalde volgorde opgehaald. 
 
-### Gebruikte tools
-
-- Alle tools die we gebruikt hebben zoals SvelteKit & Directus API en hoe we die ingezet hebben binnen ons project.
-
 ## Installatie
 Om dit project te bouwen moeten onderstaande stappen uitgevoerd worden. `Node.js` en `npm` (of alternatieven, zoals `pnpm` of `yarn`) zijn een vereiste package manager om te kunnen beginnen.  
 
