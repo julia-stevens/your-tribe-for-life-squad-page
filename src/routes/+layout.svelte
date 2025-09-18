@@ -157,37 +157,41 @@ header {
         navigation: auto;
     }
 
-    /* Animation transition old page */
-    @keyframes fade-old {
-        from {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-        to {
-            opacity: 0;
-            transform: scale(0.95) translateY(-20px); /* iets meer omhoog */
-        }
-    }
 
-    /* Animation transition new page */
-    @keyframes fade-new {
-        from {
-            opacity: 0;
-            transform: scale(1.08) translateY(20px);
+    /* Animation only for users with no reduced motion */
+    @media (prefers-reduced-motion: no-preference) {
+        /* Animation transition old page */
+        @keyframes fade-old {
+            from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px); /* iets meer omhoog */
+            }
         }
-        to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
+
+        /* Animation transition new page */
+        @keyframes fade-new {
+            from {
+                opacity: 0;
+                transform: scale(1.08) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
-    }
 
-    /* Animation transition on change root */
-    :root::view-transition-old(root) {
-        animation: 500ms ease-in-out both fade-old;
-    }
+        /* Animation transition on change root */
+        :root::view-transition-old(root) {
+            animation: 500ms ease-in-out both fade-old;
+        }
 
-    /* Animation transition on change root */
-    :root::view-transition-new(root) {
-        animation: 500ms ease-in-out both fade-new;
+        /* Animation transition on change root */
+        :root::view-transition-new(root) {
+            animation: 500ms ease-in-out both fade-new;
+        }
     }
 </style>
