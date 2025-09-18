@@ -11,7 +11,7 @@
   <title>Squadpage | {member.name}</title>
 </svelte:head>
 
-<main>
+<main id="main">
     <section>
         <a class="back" href="/">Terug</a> 
         <p class="breadcrumb-mobile"><a href="/">Squads</a> / <a href="/">2F</a>/ <a href="/{member.id}">{member.name}</a></p>
