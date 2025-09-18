@@ -1,19 +1,61 @@
-# Your Tribe for Life Squadpage
+# Squadpage Sprint 13
 
-Ontwerp en ontwikkel met een team een overzicht van jouw tribe met alle online visitekaartjes, op basis van een headless CMS en een framework.
+- Hier komt de introductie/inleiding. (Wie hebben er aan gewerkt en wat hebben we gemaakt)
+- Mockup van onze squadpage
 
-Eén iemand in het team _Forked_ deze leertaak en nodigt de andere leden uit op betreffende repository. De instructie vind je in: [INSTRUCTIONS](https://github.com/fdnd-task/your-tribe-for-life-squad-page/blob/main/docs/INSTRUCTIONS.md)
+## Inhoudsopgave
 
-## Licentie
+  * [Beschrijving](#beschrijving)
+  * [Kenmerken](#kenmerken)
+  * [Installatie](#installatie)
+  * [Bronnen](#bronnen)
+  * [Licentie](#licentie)
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+## Beschrijving
 
+### Filter en sorteer functie
+- Beschrijving feature
+- 1 & 2 Functional & Reliable
+- 3 Usable
+4 Pleasurable
+  
+### Scroll driven animation
+- Beschrijving feature
+- 1 & 2 Functional & Reliable
+- 3 Usable
+4 Pleasurable
+  
+### Text animation
+- Beschrijving feature
+- 1 & 2 Functional & Reliable
+- 3 Usable
+4 Pleasurable
+  
+### Multi page view transitions
+- Beschrijving feature
+- 1 & 2 Functional & Reliable
+- 3 Usable
+4 Pleasurable
 
-# sv
+## Kenmerken
+
+### Routes en data
+
+- Welke routes en pagina's we hebben in onze squadpage.
+
+### Gebruikte tools
+
+- Alle tools die we gebruikt hebben zoals SvelteKit & Directus API en hoe we die ingezet hebben binnen ons project.
+
+## Installatie
+
+- Hoe project installeren en gebruiken (dit onderstaande stond al in de ReadME misschien kunnen we hier bepaalde punten uithalen).
+
+### sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Creating a project
+### Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
 
@@ -24,8 +66,7 @@ npx sv create
 # create a new project in my-app
 npx sv create my-app
 ```
-
-## Developing
+### Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -36,7 +77,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+### Building
 
 To create a production version of your app:
 
@@ -47,3 +88,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Licentie
+
+This project is licensed under the terms of the [MIT license](./LICENSE).
