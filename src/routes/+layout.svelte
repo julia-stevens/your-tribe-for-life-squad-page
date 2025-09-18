@@ -184,9 +184,9 @@ header {
     }
 
 
-    /* Animation only for users with no reduced motion */
+    /* Animation alleen voor gebruikers die animaties willen */
     @media (prefers-reduced-motion: no-preference) {
-        /* Animation transition old page */
+        /* Animatie oude pagina */
         @keyframes fade-old {
             from {
                 opacity: 1;
@@ -194,11 +194,11 @@ header {
             }
             to {
                 opacity: 0;
-                transform: scale(0.95) translateY(-20px); /* iets meer omhoog */
+                transform: scale(0.95) translateY(-20px);
             }
         }
 
-        /* Animation transition new page */
+        /* Animatie nieuwe pagina */
         @keyframes fade-new {
             from {
                 opacity: 0;
@@ -210,12 +210,12 @@ header {
             }
         }
 
-        /* Animation transition on change root */
+        /* Animatie gebeurd wanneer de root veranderd */
         :root::view-transition-old(root) {
             animation: 500ms ease-in-out both fade-old;
         }
 
-        /* Animation transition on change root */
+        /* Animatie gebeurd wanneer de root veranderd */
         :root::view-transition-new(root) {
             animation: 500ms ease-in-out both fade-new;
         }
