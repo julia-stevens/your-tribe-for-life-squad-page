@@ -17,13 +17,15 @@
 - Beschrijving feature
 - 1 & 2 Functional & Reliable
 - 3 Usable
-4 Pleasurable
+- 4 Pleasurable
+- Visual
   
 ### Scroll driven animation
 - Beschrijving feature
 - 1 & 2 Functional & Reliable
 - 3 Usable
-4 Pleasurable
+- 4 Pleasurable
+- Visual
   
 ### Text animation
 
@@ -54,7 +56,8 @@ https://github.com/user-attachments/assets/a5308cc7-7359-481e-a315-c917921f2240
 - Beschrijving feature
 - 1 & 2 Functional & Reliable
 - 3 Usable
-4 Pleasurable
+- 4 Pleasurable
+- Visua
 
 ## Kenmerken
 
