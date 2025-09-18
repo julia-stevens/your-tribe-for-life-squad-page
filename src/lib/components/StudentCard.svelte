@@ -15,12 +15,55 @@
         </a>
     </div>
     <div class="avatar">
-        <img 
-            src={member.avatar || defaultImg}
-            alt="Avatar van {member.name}" 
-            width="50" 
-            height="50" 
-        >
+        <picture>
+            <!-- als member.avatar, dan responsive afbeeldingen in avif formaat, met web en png als fallback -->
+            {#if member.avatar}
+                <source 
+                    srcset="
+                        {member.avatar}?format=avif&width=50 50w,
+                        {member.avatar}?format=avif&width=100 100w,
+                        {member.avatar}?format=avif&width=200 200w
+                    "
+                    sizes="
+                        (max-width: 600px) 50px,
+                        (max-width: 1200px) 100px,
+                        200px
+                    "
+                    type="image/avif"
+                />
+                <source 
+                    srcset="
+                        {member.avatar}?format=webp&width=50 50w,
+                        {member.avatar}?format=webp&width=100 100w,
+                        {member.avatar}?format=webp&width=200 200w
+                    "
+                    sizes="
+                        (max-width: 600px) 50px,
+                        (max-width: 1200px) 100px,
+                        200px
+                    "
+                    type="image/webp"
+                />
+                    <img
+                        src="{member.avatar}?format=png&width=100"
+                        alt="Avatar van {member.name}"
+                        width="50"
+                        height="50"
+                        class="avatar-img"
+                        loading="lazy"
+                    />
+                {:else} 
+                    <!-- Default image -->
+                    <img
+                        src={defaultImg}
+                        alt="Default avatar"
+                        width="50"
+                        height="50"
+                        class="avatar-img"
+                        loading="lazy"
+                    />
+                {/if}                
+            </picture>
     </div>
 </article>
 
@@ -35,10 +78,10 @@
             /* box shadow color */
             -5px 5px 1px var(--primary-highlight),
             /* box shadow border */
-            -5px 5px 0 1px var(--primary-text)
-        ;
+            -5px 5px 0 1px var(--primary-text);
         padding: 1rem 2rem;
         width: 190px; 
+        background-color: var(--secondary-background);
     }
 
     article .name {

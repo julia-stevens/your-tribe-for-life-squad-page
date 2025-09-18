@@ -19,8 +19,11 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={favicon}>
+    <title>Squadpage Jaar 2</title>
 </svelte:head>
+
+<a href="#main" class="skip-link">Ga naar content</a>
 
 <header> 
 	    <a class="header-logo-hva" href="/"><img src="../hva-blank.svg" alt="naar de homepagina" height="50"></a>
@@ -37,10 +40,15 @@
 </footer>
 
 <style>
-	* {
+* {
     box-sizing: border-box;
     margin: 0; 
     padding: 0; 
+}
+
+*:focus {
+            outline: 3px dashed var(--primary-color);
+            outline-offset: 4px;
 }
 
 :global(body) {
@@ -57,6 +65,24 @@
 	background-color: var(--primary-color);
     padding: 1em;
     margin: 0;
+}
+
+.skip-link {
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--primary-highlight);
+    border: 1px solid var(--primary-text);
+    padding: .5em 1em;
+    border-radius: 5px;
+    transition: .3s ease-in;
+    position: absolute;
+    top: 3rem;
+    left: -10rem;
+}
+
+.skip-link:focus-visible {
+    left: 5rem;   
+    z-index: 9999; 
 }
 
 header {
